@@ -80,7 +80,7 @@ pkill java
 |---|---|---|---|
 | Package Time (./mvnw clean package) (ms)  | **13_476** |  15_174  | 13_617  |
 | Test Time (./mvnw test) (ms)   | **8_360**  | 9_385  | 11_391  |
-| Jar in Bytes    | 13_652_459  | **272_619**  | 20_067_312  |
+| Jar Size in Bytes    | 13_652_459  | **272_619**  | 20_067_312  |
 | Time to First Response (ms)   |  **1_847**  | 2_069  | 4_482 |
 | K6: Requests per second   | **12_757** | 10_176 | 11_345  |
 | K6: Number of Requests   | **3_827_239**  | 3_052_992  | 3_403_713  |
