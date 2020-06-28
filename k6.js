@@ -14,7 +14,7 @@ export const options = {
 };
 
 export default function() {
-    const response = http.get("http://localhost:8080/hello/John");
+    const response = http.get("http://localhost:8080/helloJSON/John");
 		
     const checkRes = check(response, {
         "status is 200": (r) => r.status === 200,
