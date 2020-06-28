@@ -1,5 +1,5 @@
 import http from "k6/http";
-import { check, sleep } from "k6";
+import { check } from "k6";
 
 export const options = {
     stages: [
@@ -20,6 +20,4 @@ export default function() {
         "status is 200": (r) => r.status === 200,
         "content is present": (r) => r.body.indexOf("{\"msg\":\"Hello John\",\"ts\"") !== -1,
     });
-		
-	sleep(Math.random() * 3); // Random sleep between 0s and 3s
 };
