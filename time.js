@@ -1,7 +1,7 @@
 const spawn = require("child_process").spawn;
 const request = require("request");
 
-const pingIntervalMs = 10;
+const pingIntervalMs = 5;
 
 const args = process.argv.slice(2);
 if (args.length == 0) {

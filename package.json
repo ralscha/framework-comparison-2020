@@ -1,0 +1,17 @@
+{
+  "name": "framework-comparison-2020",
+  "version": "1.0.0",
+  "scripts": {
+	  "build": "npm run build_spring_boot && npm run build_micronaut && npm run build_quarkus",
+	  "build_spring_boot": "cd spring-example && mvnw clean package",
+		"build_micronaut": "cd micronaut-example && mvnw clean package",
+		"build_quarkus": "cd quarkus-example && mvnw clean package",
+    "time": "npm run time_spring_boot && npm run time_micronaut && npm run time_quarkus",
+    "time_spring_boot": "node time.js spring-example/target/springboot.jar",
+    "time_micronaut": "node time.js micronaut-example/target/micronaut.jar",
+    "time_quarkus": "node time.js quarkus-example/target/quarkus-runner.jar"
+  },
+  "dependencies": {
+    "request": "2.88.2"
+  }
+}
