@@ -8,7 +8,7 @@ if (args.length == 0) {
   console.log('The path of java executable jar must be specified !');
 }
 
-const proc = spawn("java", ["-jar", args[0]]);
+const proc = (args[0].endsWith(".jar") ? spawn("java", ["-jar", args[0]]) : spawn(args[0]));
 
 const startTime = new Date().getTime();
 const intervalHandle = setInterval(() => {
