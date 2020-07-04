@@ -13,8 +13,8 @@
 		"time_spring_boot": "node time.js springboot.jar",
 		"time_micronaut": "node time.js micronaut.jar",
 		"time_quarkus": "node time.js quarkus-runner.jar",
-		"time_micronaut_native": "node time.js micronaut",
-		"time_quarkus_native": "node time.js quarkus-runner"
+		"time_micronaut_native": "node time.js ./micronaut",
+		"time_quarkus_native": "node time.js ./quarkus-runner"
 	},
 	"dependencies": {
 		"request": "2.88.2"
