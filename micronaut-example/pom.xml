@@ -148,7 +148,7 @@
 						</path>
 					</annotationProcessorPaths>
 					<compilerArgs>
-						<arg>-Amicronaut.processing.group=com.example.micronaut</arg>
+            <arg>-Amicronaut.processing.group=com.example</arg>
 						<arg>-Amicronaut.processing.module=micronaut</arg>
 					</compilerArgs>
 				</configuration>

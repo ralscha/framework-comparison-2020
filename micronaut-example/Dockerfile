@@ -1,13 +1,13 @@
 FROM oracle/graalvm-ce:20.1.0-java11 as graalvm
 RUN gu install native-image
 
-COPY . /home/app/complete
-WORKDIR /home/app/complete
+COPY . /home/app/micronaut
+WORKDIR /home/app/micronaut
 
-RUN native-image --no-server -cp target/complete-*.jar
+RUN native-image --no-server -cp build/libs/micronaut-*-all.jar
 
 FROM frolvlad/alpine-glibc
 RUN apk update && apk add libstdc++
 EXPOSE 8080
-COPY --from=graalvm /home/app/complete/complete /app/complete
-ENTRYPOINT ["/app/complete"]
+COPY --from=graalvm /home/app/micronaut/micronaut /app/micronaut
+ENTRYPOINT ["/app/micronaut"]
