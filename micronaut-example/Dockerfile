@@ -1,4 +1,13 @@
-FROM openjdk:14-alpine
-COPY target/micronaut-example-*.jar micronaut-example.jar
+FROM oracle/graalvm-ce:20.1.0-java11 as graalvm
+RUN gu install native-image
+
+COPY . /home/app/complete
+WORKDIR /home/app/complete
+
+RUN native-image --no-server -cp target/complete-*.jar
+
+FROM frolvlad/alpine-glibc
+RUN apk update && apk add libstdc++
 EXPOSE 8080
-CMD ["java", "-Dcom.sun.management.jmxremote", "-Xmx128m", "-jar", "micronaut-example.jar"]
+COPY --from=graalvm /home/app/complete/complete /app/complete
+ENTRYPOINT ["/app/complete"]

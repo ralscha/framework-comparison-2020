@@ -43,6 +43,11 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.graalvm.nativeimage</groupId>
+			<artifactId>svm</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
 			<groupId>io.micronaut</groupId>
 			<artifactId>micronaut-runtime</artifactId>
 			<scope>compile</scope>
@@ -136,10 +141,15 @@
 							<artifactId>micronaut-validation</artifactId>
 							<version>${micronaut.version}</version>
 						</path>
+						<path>
+							<groupId>io.micronaut</groupId>
+							<artifactId>micronaut-graal</artifactId>
+							<version>${micronaut.version}</version>
+						</path>
 					</annotationProcessorPaths>
 					<compilerArgs>
 						<arg>-Amicronaut.processing.group=com.example.micronaut</arg>
-						<arg>-Amicronaut.processing.module=com-example-micronaut</arg>
+						<arg>-Amicronaut.processing.module=micronaut</arg>
 					</compilerArgs>
 				</configuration>
 				<executions>
@@ -158,6 +168,11 @@
 								<path>
 									<groupId>io.micronaut</groupId>
 									<artifactId>micronaut-validation</artifactId>
+									<version>${micronaut.version}</version>
+								</path>
+								<path>
+									<groupId>io.micronaut</groupId>
+									<artifactId>micronaut-graal</artifactId>
 									<version>${micronaut.version}</version>
 								</path>
 							</annotationProcessorPaths>
