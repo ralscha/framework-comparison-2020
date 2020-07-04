@@ -4,12 +4,14 @@
 	"scripts": {
 		"build": "npm run build_spring_boot && npm run build_micronaut && npm run build_quarkus",
 		"build_spring_boot": "cd spring-example && ./mvnw clean package",
-		"build_micronaut": "cd micronaut-example && ./mvnw clean package",
-		"build_quarkus": "cd quarkus-example && ./mvnw clean package -Pnative",
-		"time": "npm run time_spring_boot && npm run time_micronaut && npm run time_quarkus",
+		"build_micronaut": "cd micronaut-example && ./mvnw clean package && cd target && native-image --no-server -cp micronaut.jar",
+		"build_quarkus": "cd quarkus-example && ./mvnw clean package && ./mvnw package -Pnative",
+		"time": "npm run time_spring_boot && npm run time_micronaut && npm run time_quarkus && npm run time_micronaut_native && npm run time_quarkus_native",
 		"time_spring_boot": "node time.js spring-example/target/springboot.jar",
 		"time_micronaut": "node time.js micronaut-example/target/micronaut.jar",
-		"time_quarkus": "node time.js quarkus-example/target/quarkus-runner.jar"
+		"time_quarkus": "node time.js quarkus-example/target/quarkus-runner.jar",
+		"time_micronaut_native": "node time.js micronaut-example/target/micronaut",
+		"time_quarkus_native": "node time.js quarkus-example/target/quarkus-runner"
 	},
 	"dependencies": {
 		"request": "2.88.2"
