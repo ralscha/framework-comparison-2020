@@ -1,6 +1,6 @@
-# Micronaut 2.0.0  vs Quarkus 1.5.2 vs Spring Boot 2.3.1 on JDK 14
+# Micronaut 2.0.0  vs Quarkus 1.5.2 vs Spring Boot 2.3.1 on JDK 14 and GraalVM Native Image
 
-This repo contains a performance comparison between Micronaut 2.0 vs Quarkus 1.5.2 vs Spring Boot 2.3.1 on JDK 14. 
+This repo contains a performance comparison between Micronaut 2.0 vs Quarkus 1.5.2 vs Spring Boot 2.3.1 on JDK 14 and GraalVM Native Image.    
 
 ### Setup
 
@@ -21,19 +21,45 @@ sudo apt-get install -y nodejs
 wget https://github.com/AdoptOpenJDK/openjdk14-binaries/releases/download/jdk-14.0.1%2B7/OpenJDK14U-jdk_x64_linux_hotspot_14.0.1_7.tar.gz
 tar xzf OpenJDK14U-jdk_x64_linux_hotspot_14.0.1_7.tar.gz
 rm OpenJDK14U-jdk_x64_linux_hotspot_14.0.1_7.tar.gz
-export JAVA_HOME=`pwd`/jdk-14.0.1+7
-PATH=$JAVA_HOME/bin:$PATH
 ```
 
 
-To setup first run
+Install GraalVM
+```
+wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.1.0/graalvm-ce-java11-linux-amd64-20.1.0.tar.gz
+tar xzf graalvm-ce-java11-linux-amd64-20.1.0.tar.gz
+rm graalvm-ce-java11-linux-amd64-20.1.0.tar.gz
+apt-get install build-essential libz-dev zlib1g-dev
+export JAVA_HOME=`pwd`/graalvm-ce-java11-20.1.0
+PATH=$JAVA_HOME/bin:$PATH
+gu install native-image
+```
 
+
+To setup run
 ```
 npm install
 ``` 
 
-Download k6
+Build native images
+```
+npm run build_native
+```
 
+
+Switch to AdoptOpenJDK and build jars
+```
+export JAVA_HOME=`pwd`/jdk-14.0.1+7
+PATH=$JAVA_HOME/bin:$PATH
+npm run build
+```
+
+Measure time to first response with:
+```
+npm run time
+```
+
+Download k6
 ```
 wget https://github.com/loadimpact/k6/releases/download/v0.26.2/k6-v0.26.2-linux64.tar.gz
 tar xzf k6-v0.26.2-linux64.tar.gz
@@ -41,36 +67,33 @@ mv k6-v0.26.2-linux64/k6 .
 rm -fr k6-*
 ```
 
-Build all applications
-
-```
-npm run build
-```
-
-Measure time to first response with:
-
-```
-npm run time
-```
-
-
 Run K6 and measure memory usage
 
 ```
-java -jar micronaut-example/target/micronaut.jar &
+java -jar micronaut.jar &
 ./k6 run k6.js
 ps x -o rss,vsz,command | grep java
 pkill java
 
-java -jar quarkus-example/target/quarkus-runner.jar &
+java -jar quarkus-runner.jar &
 ./k6 run k6.js
 ps x -o rss,vsz,command | grep java
 pkill java
 
-java -jar spring-example/target/springboot.jar &
+java -jar springboot.jar &
 ./k6 run k6.js
 ps x -o rss,vsz,command | grep java
 pkill java
+
+./micronaut &
+./k6 run k6.js
+ps x -o rss,vsz,command | grep micronaut
+pkill micronaut
+
+./quarkus-runner &
+./k6 run k6.js
+ps x -o rss,vsz,command | grep quarkus-runner
+pkill quarkus-runner
 ```
 
 
@@ -78,42 +101,24 @@ pkill java
 
 | METRIC  | Micronaut 2.0.0  | Quarkus 1.5.2  | Spring Boot 2.3.1  |
 |---|---|---|---|
-| Package Time (./mvnw clean package) (ms)  | **13_476** |  15_174  | 13_617  |
-| Test Time (./mvnw test) (ms)   | **8_360**  | 9_385  | 11_391  |
-| Jar Size in Bytes    | 13_652_459  | **272_619**  | 20_067_312  |
-| Time to First Response (ms)   |  **1_847**  | 2_069  | 4_482 |
-| K6: Requests per second   | **12_757** | 10_176 | 11_345  |
-| K6: Number of Requests   | **3_827_239**  | 3_052_992  | 3_403_713  |
-| Memory Consumption After K6 (RSS in kB)   | 618_944  | **530_536** |  658_408 |
+| Test Time (./mvnw test) (ms)   | **7_145**  | 8_773  | 10_880   |
+| Jar Size in Bytes    | **13_657_879**  | 17_590_561  | 20_067_300  |
+| Native Image in Bytes |  57_650_136 | **34_557_432** | - |
+| Time to First Response (ms) Java   |  1_665  | **1_599**  | 3_547 |
+| Time to First Response (ms) Native   | 69   |  **41**  | - |
+| K6: Requests per second Java   | **14_148**  | 11_020  | 12_683  |
+| K6: Number of Requests Java   | **4_244_742**   | 3_306_254  | 3_805_113  |   
+| Memory Consumption After K6 (RSS in kB) Java  | 641_596  | **468_936** | 676_400 |
+| K6: Requests per second Native   | **10_270** |  8_870 | -  |
+| K6: Number of Requests Native   | **3_081_161**  | 2_661_400  | - |
+| Memory Consumption After K6 (RSS in kB) Native  | **468_328**  | 660_052  | - |
 
 
 Tests ran on a Hetzner VPS CX41 (4 VCPU, 16 GB RAM)      
 OS: Ubuntu Server 20.04     
-28 June 2020
+4 July 2020
 
 
 
-### Results with OpenJ9
 
-```
-wget https://github.com/AdoptOpenJDK/openjdk14-binaries/releases/download/jdk-14.0.1%2B7_openj9-0.20.0/OpenJDK14U-jdk_x64_linux_openj9_14.0.1_7_openj9-0.20.0.tar.gz
-tar xzf OpenJDK14U-jdk_x64_linux_openj9_14.0.1_7_openj9-0.20.0.tar.gz
-rm OpenJDK14U-jdk_x64_linux_openj9_14.0.1_7_openj9-0.20.0.tar.gz
-export JAVA_HOME=`pwd`/jdk-14.0.1+7
-PATH=$JAVA_HOME/bin:$PATH
-```
-
-| METRIC  | Micronaut 2.0.0  | Quarkus 1.5.2  | Spring Boot 2.3.1  |
-|---|---|---|---|
-| Package Time (./mvnw clean package) (ms)  | 14_467   | 17_218   | **14_004** |
-| Test Time (./mvnw test) (ms)   | **8_787**  | 10_297   | 11_732  |
-| Time to First Response (ms)   | 2_088  | **1_867** | 4_219  |
-| K6: Requests per second   | **11_885**  |  9_547  | 11_577 |
-| K6: Number of Requests   | **3_565_739**  | 2_864_238  | 3_473_116 |
-| Memory Consumption After K6 (RSS in kB)   | 358_248  | **266_724** | 372_328 |
-
-
-Tests ran on a Hetzner VPS CX41 (4 VCPU, 16 GB RAM)      
-OS: Ubuntu Server 20.04     
-28 June 2020
 
