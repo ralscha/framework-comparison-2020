@@ -56,10 +56,10 @@ pkill goexample
 | METRIC  | Micronaut 2.0.0  | Quarkus 1.5.2  | Spring Boot 2.3.1  | Go 1.14.4 |
 |---|---|---|---|---|
 | Test Time (./mvnw test) (ms)   | **7_145**  | 8_773  | 10_880   | - |
-| Jar Size in Bytes    | **13_657_879**  | 17_590_561  | 20_067_300  | - |
-| Native Image in Bytes |  57_650_136 | **34_557_432** | - | ... |
-| Time to First Response (ms) Java   |  1_665  | **1_599**  | 3_547 | - |
-| Time to First Response (ms) Native   | 69   |  **41**  | - | ... |
+| Jar Size in Bytes    | 13_657_879  | **12_489_533**  | 20_067_300  | - |
+| Native Image in Bytes |  57_650_136 | 32_591_416 | - | **7_681_136** |
+| Time to First Response (ms) Java   |  2_782  | **2_157**  | 6_381 | - |
+| Time to First Response (ms) Native   | 105   |  **81**  | - | 84 |
 | K6: Requests per second Java   | **14_148**  | 11_020  | 12_683  | - |
 | K6: Number of Requests Java   | **4_244_742**   | 3_306_254  | 3_805_113  | - |   
 | Memory Consumption After K6 (RSS in kB) Java  | 641_596  | **468_936** | 676_400 | - |
