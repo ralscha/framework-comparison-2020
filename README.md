@@ -58,14 +58,14 @@ pkill goexample
 | Test Time (./mvnw test) (ms)   | **7_145**  | 8_773  | 10_880   | - |
 | Jar Size in Bytes    | 13_657_879  | **12_489_533**  | 20_067_300  | - |
 | Native Image in Bytes |  57_650_136 | 32_591_416 | - | **7_681_136** |
-| Time to First Response (ms) Java   |  2_782  | **2_157**  | 6_381 | - |
-| Time to First Response (ms) Native   | 105   |  **81**  | - | 84 |
-| K6: Requests per second Java   | **14_148**  | 11_020  | 12_683  | - |
-| K6: Number of Requests Java   | **4_244_742**   | 3_306_254  | 3_805_113  | - |   
-| Memory Consumption After K6 (RSS in kB) Java  | 641_596  | **468_936** | 676_400 | - |
-| K6: Requests per second Native   | **10_270** |  8_870 | -  | ... |
-| K6: Number of Requests Native   | **3_081_161**  | 2_661_400  | - | ... |
-| Memory Consumption After K6 (RSS in kB) Native  | **468_328**  | 660_052  | - | ... |
+| Time to First Response (ms) Java   | 1_957  | **1_529**  | 3_642 | - |
+| Time to First Response (ms) Native   | 80   |  41  | - | **35** |
+| K6: Requests per second Java   | **13_529**  | 10_309  | 12_512  | - |
+| K6: Number of Requests Java   | **4_059_164**   | 3_092_883  | 3_753_940  | - |   
+| Memory Consumption After K6 (RSS in kB) Java  | 553_300 | **450_120** | 661_656 | - |
+| K6: Requests per second Native   | 11_111 |  9_273 | -  | **15_455** |
+| K6: Number of Requests Native   | 3_333_411  | 2_782_155  | - | **4_636_753** |
+| Memory Consumption After K6 (RSS in kB) Native  | 470_552  | 657_240  | - | **34_132** |
 
 
 Tests ran on a Hetzner VPS CX41 (4 VCPU, 16 GB RAM)      
