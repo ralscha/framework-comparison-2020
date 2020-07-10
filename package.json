@@ -9,14 +9,14 @@
 		"build_quarkus": "cd quarkus-example && ./mvnw clean package && cp target/quarkus-runner.jar ..",
 		"build_micronaut_native": "cd micronaut-example && ./mvnw clean package && cd target && native-image --no-server -cp micronaut.jar && cp micronaut ../..",
 		"build_quarkus_native": "cd quarkus-example && ./mvnw clean package -Pnative && cp target/quarkus-runner ..",
-		"build_go": "go/bin/go go-example/go-example.go",
+		"build_go": "./go/bin/go build -o goexample go-example/go-example.go",
 		"time": "npm run time_spring_boot && npm run time_micronaut && npm run time_quarkus && npm run time_micronaut_native && npm run time_quarkus_native && npm run time_go",
 		"time_spring_boot": "node time.js springboot.jar",
 		"time_micronaut": "node time.js micronaut.jar",
 		"time_quarkus": "node time.js quarkus-runner.jar",
 		"time_micronaut_native": "node time.js ./micronaut",
 		"time_quarkus_native": "node time.js ./quarkus-runner",
-		"time_go": "node time.js ./go-example"
+		"time_go": "node time.js ./goexample"
 	},
 	"dependencies": {
 		"request": "2.88.2"

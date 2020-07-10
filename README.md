@@ -1,70 +1,19 @@
-# Micronaut 2.0.0  vs Quarkus 1.5.2 vs Spring Boot 2.3.1 on JDK 14 and GraalVM Native Image
+# Micronaut 2.0.0  vs Quarkus 1.5.2 vs Spring Boot 2.3.1 on JDK 14 and GraalVM Native Image vs Go 14.4.4
 
 This repo contains a performance comparison between Micronaut 2.0 vs Quarkus 1.5.2 vs Spring Boot 2.3.1 on JDK 14 and GraalVM Native Image.    
 
 ### Setup
 
 ```
-apt update
-apt dist-upgrade
-apt install git
-git clone https://github.com/ralscha/framework-comparison-2020.git
-cd framework-comparison-2020
+wget https://raw.githubusercontent.com/ralscha/framework-comparison-2020/master/setup.sh
+source ./setup.sh
 ```
 
-Install Node.js and Java (Ubuntu 20.04)
-
-```
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-wget https://github.com/AdoptOpenJDK/openjdk14-binaries/releases/download/jdk-14.0.1%2B7/OpenJDK14U-jdk_x64_linux_hotspot_14.0.1_7.tar.gz
-tar xzf OpenJDK14U-jdk_x64_linux_hotspot_14.0.1_7.tar.gz
-rm OpenJDK14U-jdk_x64_linux_hotspot_14.0.1_7.tar.gz
-```
-
-
-Install GraalVM
-```
-wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.1.0/graalvm-ce-java11-linux-amd64-20.1.0.tar.gz
-tar xzf graalvm-ce-java11-linux-amd64-20.1.0.tar.gz
-rm graalvm-ce-java11-linux-amd64-20.1.0.tar.gz
-apt-get install build-essential libz-dev zlib1g-dev
-export JAVA_HOME=`pwd`/graalvm-ce-java11-20.1.0
-PATH=$JAVA_HOME/bin:$PATH
-gu install native-image
-```
-
-
-To setup run
-```
-npm install
-``` 
-
-Build native images
-```
-npm run build_native
-```
-
-
-Switch to AdoptOpenJDK and build jars
-```
-export JAVA_HOME=`pwd`/jdk-14.0.1+7
-PATH=$JAVA_HOME/bin:$PATH
-npm run build
-```
+### Benchmarks
 
 Measure time to first response with:
 ```
 npm run time
-```
-
-Download k6
-```
-wget https://github.com/loadimpact/k6/releases/download/v0.26.2/k6-v0.26.2-linux64.tar.gz
-tar xzf k6-v0.26.2-linux64.tar.gz
-mv k6-v0.26.2-linux64/k6 .
-rm -fr k6-*
 ```
 
 Run K6 and measure memory usage
@@ -94,6 +43,11 @@ pkill micronaut
 ./k6 run k6.js
 ps x -o rss,vsz,command | grep quarkus-runner
 pkill quarkus-runner
+
+./goexample &&
+./k6 run k6.js
+ps x -o rss,vsz,command | grep goexample
+pkill goexample
 ```
 
 
