@@ -57,6 +57,18 @@ ps x -o rss,vsz,command | grep quarkus-runner
 sleep 5
 ps x -o rss,vsz,command | grep quarkus-runner
 pkill quarkus-runner
+sleep 30
+
+./go-example &
+./k6 run k6.js
+./k6 run k6.js
+./k6 run k6.js
+ps x -o rss,vsz,command | grep go-example
+sleep 5
+ps x -o rss,vsz,command | grep go-example
+sleep 5
+ps x -o rss,vsz,command | grep go-example
+pkill go-example
 
 
 

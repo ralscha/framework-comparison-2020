@@ -2,19 +2,21 @@
 	"name": "framework-comparison-2020",
 	"version": "1.0.0",
 	"scripts": {
-		"build": "npm run build_spring_boot && npm run build_micronaut && npm run build_quarkus",
+		"build": "npm run build_spring_boot && npm run build_micronaut && npm run build_quarkus && npm run build_go",
 		"build_native": "npm run build_micronaut_native && npm run build_quarkus_native",
 		"build_spring_boot": "cd spring-example && ./mvnw clean package && cp target/springboot.jar ..",
 		"build_micronaut": "cd micronaut-example && ./mvnw clean package && cp target/micronaut.jar ..",
 		"build_quarkus": "cd quarkus-example && ./mvnw clean package && cp target/quarkus-runner.jar ..",
 		"build_micronaut_native": "cd micronaut-example && ./mvnw clean package && cd target && native-image --no-server -cp micronaut.jar && cp micronaut ../..",
 		"build_quarkus_native": "cd quarkus-example && ./mvnw clean package -Pnative && cp target/quarkus-runner ..",
-		"time": "npm run time_spring_boot && npm run time_micronaut && npm run time_quarkus && npm run time_micronaut_native && npm run time_quarkus_native",
+		"build_go": "cd go-example && source build_go.sh && cp go-example ..",
+		"time": "npm run time_spring_boot && npm run time_micronaut && npm run time_quarkus && npm run time_micronaut_native && npm run time_quarkus_native && npm run time_go",
 		"time_spring_boot": "node time.js springboot.jar",
 		"time_micronaut": "node time.js micronaut.jar",
 		"time_quarkus": "node time.js quarkus-runner.jar",
 		"time_micronaut_native": "node time.js ./micronaut",
-		"time_quarkus_native": "node time.js ./quarkus-runner"
+		"time_quarkus_native": "node time.js ./quarkus-runner",
+		"time_go": "node time.js ./go-example"
 	},
 	"dependencies": {
 		"request": "2.88.2"
