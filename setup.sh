@@ -62,8 +62,8 @@ cd ..
 
 ./go/bin/go build -o goexample go-example/go-example.go
 
-cd go-fibre-example\
-go build -o gofibreexample go-example.go
+cd go-fibre-example
+../go/bin/go build -o gofibreexample go-example.go
 cp gofibreexample ..
 cd ..
 
