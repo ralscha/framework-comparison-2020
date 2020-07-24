@@ -1,6 +1,6 @@
 apt update
 apt dist-upgrade -y
-apt install git -y
+apt install git screen -y
 git clone https://github.com/ralscha/framework-comparison-2020.git
 cd framework-comparison-2020
 
