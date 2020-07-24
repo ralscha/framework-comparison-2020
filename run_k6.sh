@@ -71,6 +71,17 @@ ps x -o rss,vsz,command | grep goexample
 pkill goexample
 
 
+./gofibreexample &
+./k6 run k6.js
+./k6 run k6.js
+./k6 run k6.js
+ps x -o rss,vsz,command | grep gofibreexample
+sleep 5
+ps x -o rss,vsz,command | grep gofibreexample
+sleep 5
+ps x -o rss,vsz,command | grep gofibreexample
+pkill gofibreexample
+
 
 
 
