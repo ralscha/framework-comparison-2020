@@ -24,6 +24,9 @@ func sayHello(name string) string {
 }
 
 func main() {
-	http.HandleFunc("/helloJSON/", jsonHandler)
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	mux := http.NewServeMux()
+	mux.HandleFunc("/helloJSON/", jsonHandler)
+	
+	err := http.ListenAndServe(":8080", mux)
+	log.Fatal(err)
 }
