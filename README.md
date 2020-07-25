@@ -60,13 +60,13 @@ pkill gofibreexample
 
 | FRAMEWORK | Package Size in Bytes | Time to First Response (ms) | K6: Requests per second | Memory Consumption After K6 (RSS in kB) |
 |---|--:|--:|--:|--:|
-| Micronaut 2.0.0 | 13_657_888 * | 1_989 | ? | ? |
-| Micronaut 2.0.0 Native | 57_650_136 | 67 | ? | ? |
-|Quarkus 1.6.1 | 12_830_245 * | 1_711 | ? | ? |
-| Quarkus 1.6.1 Native | 31_756_776 | 36 | ? | ? |
-| Spring Boot 2.3.2 | 20_085_712 * | 3_718 | ? | ? |
-| Go 1.14.6 | **7_689_328** | 31 | ? | ? |
-| Go Fibre 1.14.6 | 12_984_161 | **28** | ? | ? |
+| Micronaut 2.0.0 | 13_657_888 * | 1_989 | 12_853 | 631_013 |
+| Micronaut 2.0.0 Native | 57_650_136 | 67 | 9_975 | 472_156 |
+|Quarkus 1.6.1 | 12_830_245 * | 1_711 | 10_500 | 496_096 |
+| Quarkus 1.6.1 Native | 31_756_776 | 36 | 8_562 | 638_622 |
+| Spring Boot 2.3.2 | 20_085_712 * | 3_718 | 12_257 | 652_302 |
+| Go 1.14.6 | **7_689_328** | 31 | 13_940 | **33_918** |
+| Go Fibre 1.14.6 | 12_984_161 | **28** | **16_131** | 43_828 |
 
 \* = requires a JRE
 
