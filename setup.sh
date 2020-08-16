@@ -38,8 +38,10 @@ cp micronaut ../..
 cd ../..
 
 cd quarkus-example
+mv src/main/resources/application.properties .
 ./mvnw clean package -Pnative
 cp target/quarkus-runner ..
+mv application.properties src/main/resources/
 cd ..
 
 export JAVA_HOME=`pwd`/jdk-14.0.2+12
