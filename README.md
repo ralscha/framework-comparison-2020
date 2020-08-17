@@ -1,4 +1,4 @@
-# Micronaut 2.0.0  vs Quarkus 1.6.1 vs Spring Boot 2.3.2 on JDK 14 and GraalVM Native Image vs Go 1.14.6
+# Micronaut 2.0.1  vs Quarkus 1.7.0 vs Spring Boot 2.3.3 on JDK 14 and GraalVM Native Image vs Go 1.15
 
 This repo contains a performance comparison between Micronaut vs Quarkus vs Spring Boot on JDK 14 and GraalVM Native Image and Go.    
 
@@ -60,17 +60,17 @@ pkill gofibreexample
 
 | FRAMEWORK | Package Size in Bytes | Time to First Response (ms) | K6: Requests per second | Memory Consumption After K6 (RSS in kB) |
 |---|--:|--:|--:|--:|
-| Micronaut 2.0.0 | 13_657_888 * | 1_989 | 12_853 | 631_013 |
-| Micronaut 2.0.0 Native | 57_650_136 | 67 | 9_975 | 472_156 |
-|Quarkus 1.6.1 | 12_830_245 * | 1_711 | 10_500 | 496_096 |
-| Quarkus 1.6.1 Native | 31_756_776 | 36 | 8_562 | 638_622 |
-| Spring Boot 2.3.2 | 20_085_712 * | 3_718 | 12_257 | 652_302 |
-| Go 1.14.6 | **7_689_328** | 31 | 13_940 | **33_918** |
-| Go Fibre 1.14.6 | 12_984_161 | **28** | **16_131** | 43_828 |
+| Micronaut 2.0.1 | * 13_668_313 | 1_989 | 12_032 | 589_006 |
+| Micronaut 2.0.1 Native | 57_691_096 | 86 | 9_190 | 471_288 |
+| Quarkus 1.7.0 | * 13_000_439 | 1_638 | 9_589 | 542_336 |
+| Quarkus 1.7.0 Native | 30_994_360 | 37 | 7_569 | 637_588 |
+| Spring Boot 2.3.3 | * 20_092_255 |3_746 | 11_449 | 676_315 |
+| Go 1.15 | **6_628_268** | **27** | 12_214 | **34_921** |
+| Go Fibre 1.15 | 8_639_777 | 34 | **14_286** | 42_756 |
 
-\* = requires a JRE
+\* = requires JRE
 
 Tests ran on a Hetzner VPS CX41 (4 VCPU, 16 GB RAM)      
 OS: Ubuntu Server 20.04     
-25 July 2020
+17 August 2020
 
