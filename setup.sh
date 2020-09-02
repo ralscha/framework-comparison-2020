@@ -24,9 +24,9 @@ tar xzf k6-v0.27.1-linux64.tar.gz
 mv k6-v0.27.1-linux64/k6 .
 rm -fr k6-*
 
-wget https://golang.org/dl/go1.15.linux-amd64.tar.gz
-tar xzf go1.15.linux-amd64.tar.gz
-rm go1.15.linux-amd64.tar.gz
+wget https://golang.org/dl/go1.15.1.linux-amd64.tar.gz
+tar xzf go1.15.1.linux-amd64.tar.gz
+rm go1.15.1.linux-amd64.tar.gz
 
 npm install
 
