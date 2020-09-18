@@ -1,4 +1,4 @@
-export JAVA_HOME=`pwd`/jdk-14.0.2+12
+export JAVA_HOME=`pwd`/jdk-15+36
 PATH=$JAVA_HOME/bin:$PATH
 npm run time
 sleep 5
