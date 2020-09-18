@@ -7,15 +7,15 @@ cd framework-comparison-2020
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-wget https://github.com/AdoptOpenJDK/openjdk14-binaries/releases/download/jdk-14.0.2%2B12/OpenJDK14U-jdk_x64_linux_hotspot_14.0.2_12.tar.gz
-tar xzf OpenJDK14U-jdk_x64_linux_hotspot_14.0.2_12.tar.gz
-rm OpenJDK14U-jdk_x64_linux_hotspot_14.0.2_12.tar.gz
+wget https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15%2B36/OpenJDK15U-jdk_x64_linux_hotspot_15_36.tar.gz
+tar xzf OpenJDK15U-jdk_x64_linux_hotspot_15_36.tar.gz
+rm OpenJDK15U-jdk_x64_linux_hotspot_15_36.tar.gz
 
-wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.1.0/graalvm-ce-java11-linux-amd64-20.1.0.tar.gz
-tar xzf graalvm-ce-java11-linux-amd64-20.1.0.tar.gz
-rm graalvm-ce-java11-linux-amd64-20.1.0.tar.gz
+wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.2.0/graalvm-ce-java11-linux-amd64-20.2.0.tar.gz
+tar xzf graalvm-ce-java11-linux-amd64-20.2.0.tar.gz
+rm graalvm-ce-java11-linux-amd64-20.2.0.tar.gz
 apt-get install build-essential libz-dev zlib1g-dev -y
-export JAVA_HOME=`pwd`/graalvm-ce-java11-20.1.0
+export JAVA_HOME=`pwd`/graalvm-ce-java11-20.2.0
 PATH=$JAVA_HOME/bin:$PATH
 gu install native-image
 
@@ -44,7 +44,7 @@ cp target/quarkus-runner ..
 mv application.properties src/main/resources/
 cd ..
 
-export JAVA_HOME=`pwd`/jdk-14.0.2+12
+export JAVA_HOME=`pwd`/jdk-15+36
 PATH=$JAVA_HOME/bin:$PATH
 
 cd spring-example
