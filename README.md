@@ -1,6 +1,6 @@
-# Micronaut 2.0.1  vs Quarkus 1.7.0 vs Spring Boot 2.3.3 on JDK 14 and GraalVM Native Image vs Go 1.15
+# Micronaut 2.0.2  vs Quarkus 1.8.1 vs Spring Boot 2.3.4 on JDK 15 and GraalVM Native Image 20.2.0 vs Go 1.15.2
 
-This repo contains a performance comparison between Micronaut vs Quarkus vs Spring Boot on JDK 14 and GraalVM Native Image and Go.    
+This repo contains a performance comparison between Micronaut vs Quarkus vs Spring Boot on JDK 15 and GraalVM Native Image and Go.    
 
 ### Setup
 
@@ -58,19 +58,19 @@ pkill gofibreexample
 
 ### Results
 
-| FRAMEWORK | Package Size in Bytes | Time to First Response (ms) | K6: Requests per second | Memory Consumption After K6 (RSS in kB) |
+| FRAMEWORK         | Package Size in Bytes | Time to First Response (ms) | K6: Requests per second | Memory Consumption After K6 (RSS in kB) |
 |---|--:|--:|--:|--:|
-| Micronaut 2.0.1 | * 13_668_313 | 1_989 | 12_032 | 589_006 |
-| Micronaut 2.0.1 Native | 57_691_096 | 86 | 9_190 | 471_288 |
-| Quarkus 1.7.0 | * 13_000_439 | 1_638 | 9_589 | 542_336 |
-| Quarkus 1.7.0 Native | 30_994_360 | 37 | 7_569 | 637_588 |
-| Spring Boot 2.3.3 | * 20_092_255 |3_746 | 11_449 | 676_315 |
-| Go 1.15 | **6_628_268** | **27** | 12_214 | **34_921** |
-| Go Fibre 1.15 | 8_639_777 | 34 | **14_286** | 42_756 |
+| Micronaut 2.0.2        | * 13_678_198  | 1_390  | 17_918     | 607_336    |
+| Micronaut 2.0.2 Native | 65_476_184    | 62     | 13_831     | 473_223    |
+| Quarkus 1.8.1          | * 13_085_663  | 1_131  | 13_987     | 531_936    |
+| Quarkus 1.8.1 Native   | 32_170_288    | 28     | 11_255     | 640_984    |
+| Spring Boot 2.3.4      | * 20_125_614  | 2_535  | 16_714     | 688_287    |
+| Go 1.15.2              | **6_628_268** | **25** | 18_837     | **34_657** |
+| Go Fibre 1.15.2        | 8_621_803     | 28     | **21_883** | 42_824     |
 
 \* = requires JRE
 
-Tests ran on a Hetzner VPS CX41 (4 VCPU, 16 GB RAM)      
+Tests ran on a [Hetzner](https://www.hetzner.com/) VPS CX41 (4 VCPU, 16 GB RAM)      
 OS: Ubuntu Server 20.04     
-17 August 2020
+19 September 2020
 
