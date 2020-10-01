@@ -1,6 +1,15 @@
 apt update
 apt dist-upgrade -y
-apt install git screen -y
+apt-get remove docker docker-engine docker.io containerd runc -y
+apt install git screen apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
+    
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+apt-key fingerprint 0EBFCD88
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+apt-get update
+apt-get install docker-ce docker-ce-cli containerd.io
+
+
 git clone https://github.com/ralscha/framework-comparison-2020.git
 cd framework-comparison-2020
 
