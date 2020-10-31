@@ -35,16 +35,16 @@ ps x -o rss,vsz,command | grep java
 pkill java
 sleep 30
 
-./micronaut &
+./micronaut-runner &
 ./k6 run --summary-export=micronaut-native1.json k6.js
 ./k6 run --summary-export=micronaut-native2.json k6.js
 ./k6 run --summary-export=micronaut-native3.json k6.js
-ps x -o rss,vsz,command | grep micronaut
+ps x -o rss,vsz,command | grep micronaut-runner
 sleep 5
-ps x -o rss,vsz,command | grep micronaut
+ps x -o rss,vsz,command | grep micronaut-runner
 sleep 5
-ps x -o rss,vsz,command | grep micronaut
-pkill micronaut
+ps x -o rss,vsz,command | grep micronaut-runner
+pkill micronaut-runner
 sleep 30
 
 ./quarkus-runner &

@@ -44,7 +44,7 @@ chmod 700 mvnw
 ./mvnw clean package
 cd target
 native-image --no-server -cp micronaut.jar
-cp micronaut ../..
+cp micronaut ../../micronaut-runner
 cd ../..
 
 cd quarkus
