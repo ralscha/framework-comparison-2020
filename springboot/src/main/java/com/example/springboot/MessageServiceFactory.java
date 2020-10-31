@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+@Configuration(proxyBeanMethods=false)
 public class MessageServiceFactory {
 
 	private final String message;
@@ -14,7 +14,7 @@ public class MessageServiceFactory {
 	}
 
 	@Bean
-	MessageService messageService() {
+	public MessageService messageService() {
 		return new MessageService(this.message);
 	}
 }

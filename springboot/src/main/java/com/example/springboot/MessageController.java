@@ -20,7 +20,7 @@ public class MessageController {
 	}
 
 	@GetMapping(value = "/hello/{name}", produces = MediaType.TEXT_PLAIN_VALUE)
-	String hello(@NotBlank @PathVariable("name") String name) {
+	public String hello(@NotBlank @PathVariable("name") String name) {
 		return this.messageService.sayHello(name);
 	}
 
