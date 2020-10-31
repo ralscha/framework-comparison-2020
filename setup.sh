@@ -40,6 +40,7 @@ rm go1.15.3.linux-amd64.tar.gz
 npm install
 
 cd micronaut
+chmod 700 mvnw
 ./mvnw clean package
 cd target
 native-image --no-server -cp micronaut.jar
@@ -48,6 +49,7 @@ cd ../..
 
 cd quarkus
 mv src/main/resources/application.properties .
+chmod 700 mvnw
 ./mvnw clean package -Pnative
 cp target/quarkus-runner ..
 mv application.properties src/main/resources/
@@ -57,6 +59,7 @@ export JAVA_HOME=`pwd`/jdk-15.0.1+9
 PATH=$JAVA_HOME/bin:$PATH
 
 cd springboot
+chmod 700 mvnw
 ./mvnw clean package
 cp target/springboot.jar ..
 cd ..
