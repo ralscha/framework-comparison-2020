@@ -60,17 +60,18 @@ pkill gofibreexample
 
 | FRAMEWORK         | Package Size in Bytes | Time to First Response (ms) | K6: Requests per second | Memory Consumption After K6 (RSS in kB) |
 |---|--:|--:|--:|--:|
-| Micronaut 2.1.2        | * 13_678_198  | 1_390  | 17_918     | 607_336    |
-| Micronaut 2.1.2 Native | 65_476_184    | 62     | 13_831     | 473_223    |
-| Quarkus 1.9.1          | * 13_085_663  | 1_131  | 13_987     | 531_936    |
-| Quarkus 1.9.1 Native   | 32_170_288    | 28     | 11_255     | 640_984    |
-| Spring Boot 2.4.0-RC1  | * 20_125_614  | 2_535  | 16_714     | 688_287    |
-| Go 1.15.3              | **6_628_268** | **25** | 18_837     | **34_657** |
-| Go Fibre 1.15.3        | 8_621_803     | 28     | **21_883** | 42_824     |
+| Micronaut 2.1.2        | * 13_694_969  | 1_766  | 14_910     | 572_482    |
+| Micronaut 2.1.2 Native | 65_046_104    | 60     | 11_083     | 470_008    |
+| Quarkus 1.9.1          | * 13_361_271  | 1_400  | 11_902     | 464_472    |
+| Quarkus 1.9.1 Native   | 34_177_512    | 35     | 9_278      | 643_656    |
+| Spring Boot 2.4.0-RC1  | * 20_511_000  | 3_136  | 13_877     | 501_981    |
+| Go 1.15.3              | **6_628_330** | 28     | 14_823     | **34_836** |
+| Go Fibre 1             | 8_617_769     | 27     | 17_419     | 42_880     |
+| Go Fibre 2             | 8_896_184     | **24** | **17_523** | 36_532     |
 
 \* = requires JRE
 
 Tests ran on a [Hetzner](https://www.hetzner.com/) VPS CX41 (4 VCPU, 16 GB RAM)      
 OS: Ubuntu Server 20.04     
-19 September 2020
+2 November 2020
 
