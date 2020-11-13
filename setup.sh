@@ -28,14 +28,14 @@ export JAVA_HOME=`pwd`/graalvm-ce-java11-20.2.0
 PATH=$JAVA_HOME/bin:$PATH
 gu install native-image
 
-wget https://github.com/loadimpact/k6/releases/download/v0.28.0/k6-v0.28.0-linux64.tar.gz
-tar xzf k6-v0.28.0-linux64.tar.gz
-mv k6-v0.28.0-linux64/k6 .
+wget https://github.com/loadimpact/k6/releases/download/v0.29.0/k6-v0.29.0-linux64.tar.gz
+tar xzf k6-v0.29.0-linux64.tar.gz
+mv k6-v0.29.0-linux64/k6 .
 rm -fr k6-*
 
-wget https://golang.org/dl/go1.15.3.linux-amd64.tar.gz
-tar xzf go1.15.3.linux-amd64.tar.gz
-rm go1.15.3.linux-amd64.tar.gz
+wget https://golang.org/dl/go1.15.5.linux-amd64.tar.gz
+tar xzf go1.15.5.linux-amd64.tar.gz
+rm go1.15.5.linux-amd64.tar.gz
 
 npm install
 
