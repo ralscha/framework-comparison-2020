@@ -2,4 +2,4 @@ module com.example/go-fibre-example
 
 go 1.15
 
-require github.com/gofiber/fiber/v2 v2.1.2
+require github.com/gofiber/fiber/v2 v2.2.1

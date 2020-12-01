@@ -20,11 +20,11 @@ wget https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15
 tar xzf OpenJDK15U-jdk_x64_linux_hotspot_15.0.1_9.tar.gz
 rm OpenJDK15U-jdk_x64_linux_hotspot_15.0.1_9.tar.gz
 
-wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.2.0/graalvm-ce-java11-linux-amd64-20.2.0.tar.gz
-tar xzf graalvm-ce-java11-linux-amd64-20.2.0.tar.gz
-rm graalvm-ce-java11-linux-amd64-20.2.0.tar.gz
+wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.3.0/graalvm-ce-java11-linux-amd64-20.3.0.tar.gz
+tar xzf graalvm-ce-java11-linux-amd64-20.3.0.tar.gz
+rm graalvm-ce-java11-linux-amd64-20.3.0.tar.gz
 apt-get install build-essential libz-dev zlib1g-dev -y
-export JAVA_HOME=`pwd`/graalvm-ce-java11-20.2.0
+export JAVA_HOME=`pwd`/graalvm-ce-java11-20.3.0
 PATH=$JAVA_HOME/bin:$PATH
 gu install native-image
 
@@ -41,11 +41,9 @@ npm install
 
 cd micronaut
 chmod 700 mvnw
-./mvnw clean package
-cd target
-native-image --no-server -cp micronaut.jar
-cp micronaut ../../micronaut-runner
-cd ../..
+./mvnw clean package -Dpackaging=native-image
+cp target/micronaut ../micronaut-runner
+cd ..
 
 cd quarkus
 mv src/main/resources/application.properties .
@@ -76,14 +74,13 @@ cd ..
 
 ./go/bin/go build -o goexample go/go-example.go
 
-cd go-fibre1
-../go/bin/go build -o gofibre1 go-example.go
-cp gofibre1 ..
+cd go-fibre
+../go/bin/go build -o gofibre go-example.go
+cp gofibre ..
 cd ..
 
-cd go-fibre2
-../go/bin/go build -o gofibre2 go-example.go
-cp gofibre2 ..
+cd go-echo
+../go/bin/go build -o goecho go-example.go
+cp goecho ..
 cd ..
-
 

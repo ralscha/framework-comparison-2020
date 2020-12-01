@@ -71,28 +71,25 @@ ps x -o rss,vsz,command | grep goexample
 pkill goexample
 
 
-./gofibre1 &
-./k6 run --summary-export=gofibre1_1.json k6.js
-./k6 run --summary-export=gofibre1_2.json k6.js
-./k6 run --summary-export=gofibre1_3.json k6.js
-ps x -o rss,vsz,command | grep gofibre1
+./gofibre &
+./k6 run --summary-export=gofibre_1.json k6.js
+./k6 run --summary-export=gofibre_2.json k6.js
+./k6 run --summary-export=gofibre_3.json k6.js
+ps x -o rss,vsz,command | grep gofibre
 sleep 5
-ps x -o rss,vsz,command | grep gofibre1
+ps x -o rss,vsz,command | grep gofibre
 sleep 5
-ps x -o rss,vsz,command | grep gofibre1
-pkill gofibre1
+ps x -o rss,vsz,command | grep gofibre
+pkill gofibre
 
-./gofibre2 &
-./k6 run --summary-export=gofibre2_1.json k6.js
-./k6 run --summary-export=gofibre2_2.json k6.js
-./k6 run --summary-export=gofibre2_3.json k6.js
-ps x -o rss,vsz,command | grep gofibre2
+
+./goecho &
+./k6 run --summary-export=goecho_1.json k6.js
+./k6 run --summary-export=goecho_2.json k6.js
+./k6 run --summary-export=goecho_3.json k6.js
+ps x -o rss,vsz,command | grep goecho
 sleep 5
-ps x -o rss,vsz,command | grep gofibre2
+ps x -o rss,vsz,command | grep goecho
 sleep 5
-ps x -o rss,vsz,command | grep gofibre2
-pkill gofibre2
-
-
-
-
+ps x -o rss,vsz,command | grep goecho
+pkill goecho
