@@ -64,7 +64,7 @@ cd ..
 
 cd micronaut
 ./mvnw clean package
-cp target/micronaut.jar ..
+cp target/micronaut-0.1.jar ../micronaut.jar
 cd ..
 
 cd quarkus

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.example</groupId>
-  <artifactId>micronaut</artifactId>
-  <version>0.1</version>
-  <packaging>${packaging}</packaging>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.example</groupId>
+	<artifactId>micronaut</artifactId>
+	<version>0.1</version>
+	<packaging>${packaging}</packaging>
 
 	<parent>
 		<groupId>io.micronaut</groupId>
@@ -14,12 +15,12 @@
 	</parent>
 
 	<properties>
-    <packaging>jar</packaging>
+		<packaging>jar</packaging>
 		<jdk.version>11</jdk.version>
 		<release.version>11</release.version>
 		<micronaut.version>2.2.1</micronaut.version>
 		<exec.mainClass>com.example.micronaut.Application</exec.mainClass>
-    <micronaut.runtime>netty</micronaut.runtime>
+		<micronaut.runtime>netty</micronaut.runtime>
 	</properties>
 
 	<repositories>
@@ -49,18 +50,18 @@
 			<artifactId>micronaut-http-server-netty</artifactId>
 			<scope>compile</scope>
 		</dependency>
-    <dependency>
-      <groupId>org.graalvm.nativeimage</groupId>
-      <artifactId>svm</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.graalvm.sdk</groupId>
-      <artifactId>graal-sdk</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.micronaut</groupId>
+		<dependency>
+			<groupId>org.graalvm.nativeimage</groupId>
+			<artifactId>svm</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.graalvm.sdk</groupId>
+			<artifactId>graal-sdk</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.micronaut</groupId>
 			<artifactId>micronaut-runtime</artifactId>
 			<scope>compile</scope>
 		</dependency>
@@ -97,7 +98,6 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>micronaut</finalName>
 		<plugins>
 			<plugin>
 				<groupId>io.micronaut.build</groupId>
@@ -109,16 +109,17 @@
 				<configuration>
 					<!-- Uncomment to enable incremental compilation -->
 					<!-- <useIncrementalCompilation>false</useIncrementalCompilation> -->
-          <annotationProcessorPaths combine.children="append">
-            <path>
-              <groupId>io.micronaut</groupId>
-              <artifactId>micronaut-graal</artifactId>
-              <version>${micronaut.version}</version>
-            </path>
+					<annotationProcessorPaths
+						combine.children="append">
+						<path>
+							<groupId>io.micronaut</groupId>
+							<artifactId>micronaut-graal</artifactId>
+							<version>${micronaut.version}</version>
+						</path>
 					</annotationProcessorPaths>
 					<compilerArgs>
 						<arg>-Amicronaut.processing.group=com.example</arg>
-            <arg>-Amicronaut.processing.module=micronaut</arg>
+						<arg>-Amicronaut.processing.module=micronaut</arg>
 					</compilerArgs>
 				</configuration>
 			</plugin>
