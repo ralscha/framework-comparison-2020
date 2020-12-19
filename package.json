@@ -2,7 +2,7 @@
 	"name": "framework-comparison-2020",
 	"version": "1.0.0",
 	"scripts": {
-		"time": "npm run time_spring_boot && npm run time_micronaut && npm run time_quarkus && npm run time_micronaut_native && npm run time_quarkus_native && npm run time_go && npm run time_go_fibre && time_go_echo",
+		"time": "npm run time_spring_boot && npm run time_micronaut && npm run time_quarkus && npm run time_micronaut_native && npm run time_quarkus_native && npm run time_go && npm run time_go_fibre && npm run time_go_echo",
 		"time_spring_boot": "node time.js springboot.jar",
 		"time_micronaut": "node time.js micronaut.jar",
 		"time_quarkus": "node time.js quarkus-runner.jar",
