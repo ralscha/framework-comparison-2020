@@ -1,5 +1,8 @@
 package com.example.quarkus;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
+@RegisterForReflection
 public class HelloMessage {
 	private final String msg;
 
