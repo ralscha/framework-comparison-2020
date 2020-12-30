@@ -26,11 +26,6 @@ tar xzf OpenJDK15U-jre_x64_linux_openj9_15.0.1_9_openj9-0.23.0.tar.gz
 rm OpenJDK15U-jre_x64_linux_openj9_15.0.1_9_openj9-0.23.0.tar.gz
 mv jdk-15.0.1+9-jre openj9
 
-wget https://corretto.aws/downloads/latest/amazon-corretto-11-x64-linux-jdk.tar.gz
-tar xzf amazon-corretto-11-x64-linux-jdk.tar.gz
-rm amazon-corretto-11-x64-linux-jdk.tar.gz
-mv amazon-corretto-11.0.9.12.1-linux-x64 corretto
-
 wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.3.0/graalvm-ce-java11-linux-amd64-20.3.0.tar.gz
 tar xzf graalvm-ce-java11-linux-amd64-20.3.0.tar.gz
 rm graalvm-ce-java11-linux-amd64-20.3.0.tar.gz
