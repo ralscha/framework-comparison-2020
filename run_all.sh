@@ -1,6 +1,7 @@
 export JAVA_HOME=`pwd`/openjdk
 OLD_PATH=$PATH
 PATH=$JAVA_HOME/bin:$OLD_PATH
+java -version
 npm run time
 sleep 5
 npm run time
@@ -15,6 +16,7 @@ source ./run_k6_native.sh
 
 export JAVA_HOME=`pwd`/openj9
 PATH=$JAVA_HOME/bin:$OLD_PATH
+java -version
 npm run time
 sleep 5
 npm run time
@@ -28,6 +30,7 @@ source ./run_k6_java.sh
 
 export JAVA_HOME=`pwd`/corretto
 PATH=$JAVA_HOME/bin:$OLD_PATH
+java -version
 npm run time
 sleep 5
 npm run time
