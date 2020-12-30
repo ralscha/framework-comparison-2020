@@ -13,12 +13,23 @@ apt-get install docker-ce docker-ce-cli containerd.io
 git clone https://github.com/ralscha/framework-comparison-2020.git
 cd framework-comparison-2020
 
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 wget https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.1%2B9/OpenJDK15U-jdk_x64_linux_hotspot_15.0.1_9.tar.gz
 tar xzf OpenJDK15U-jdk_x64_linux_hotspot_15.0.1_9.tar.gz
 rm OpenJDK15U-jdk_x64_linux_hotspot_15.0.1_9.tar.gz
+mv jdk-15.0.1+9 openjdk
+
+wget https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.1%2B9_openj9-0.23.0/OpenJDK15U-jre_x64_linux_openj9_15.0.1_9_openj9-0.23.0.tar.gz
+tar xzf OpenJDK15U-jre_x64_linux_openj9_15.0.1_9_openj9-0.23.0.tar.gz
+rm OpenJDK15U-jre_x64_linux_openj9_15.0.1_9_openj9-0.23.0.tar.gz
+mv jdk-15.0.1+9-jre openj9
+
+wget https://corretto.aws/downloads/latest/amazon-corretto-11-x64-linux-jdk.tar.gz
+tar xzf amazon-corretto-11-x64-linux-jdk.tar.gz
+rm amazon-corretto-11-x64-linux-jdk.tar.gz
+mv amazon-corretto-11.0.9.12.1-linux-x64 corretto
 
 wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.3.0/graalvm-ce-java11-linux-amd64-20.3.0.tar.gz
 tar xzf graalvm-ce-java11-linux-amd64-20.3.0.tar.gz
@@ -53,7 +64,7 @@ cp target/quarkus-runner ..
 mv application.properties src/main/resources/
 cd ..
 
-export JAVA_HOME=`pwd`/jdk-15.0.1+9
+export JAVA_HOME=`pwd`/openjdk
 PATH=$JAVA_HOME/bin:$PATH
 
 cd springboot
