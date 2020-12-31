@@ -7,7 +7,7 @@ sleep 5
 ps x -o rss,vsz,command | grep micronaut-runner
 sleep 5
 ps x -o rss,vsz,command | grep micronaut-runner
-pkill micronaut-runner
+pkill micronaut
 sleep 30
 
 ./quarkus-runner &
@@ -19,7 +19,7 @@ sleep 5
 ps x -o rss,vsz,command | grep quarkus-runner
 sleep 5
 ps x -o rss,vsz,command | grep quarkus-runner
-pkill quarkus-runner
+pkill quarkus
 sleep 30
 
 ./goexample &
