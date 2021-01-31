@@ -26,11 +26,11 @@ tar xzf OpenJDK15U-jre_x64_linux_openj9_15.0.1_9_openj9-0.23.0.tar.gz
 rm OpenJDK15U-jre_x64_linux_openj9_15.0.1_9_openj9-0.23.0.tar.gz
 mv jdk-15.0.1+9-jre openj9
 
-wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-20.3.0/graalvm-ce-java11-linux-amd64-20.3.0.tar.gz
-tar xzf graalvm-ce-java11-linux-amd64-20.3.0.tar.gz
-rm graalvm-ce-java11-linux-amd64-20.3.0.tar.gz
+wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.0.0/graalvm-ce-java11-linux-amd64-21.0.0.tar.gz
+tar xzf graalvm-ce-java11-linux-amd64-21.0.0.tar.gz
+rm graalvm-ce-java11-linux-amd64-21.0.0.tar.gz
 apt-get install build-essential libz-dev zlib1g-dev -y
-export JAVA_HOME=`pwd`/graalvm-ce-java11-20.3.0
+export JAVA_HOME=`pwd`/graalvm-ce-java11-21.0.0
 PATH=$JAVA_HOME/bin:$PATH
 gu install native-image
 
@@ -39,9 +39,9 @@ tar xzf k6-v0.29.0-linux64.tar.gz
 mv k6-v0.29.0-linux64/k6 .
 rm -fr k6-*
 
-wget https://golang.org/dl/go1.15.6.linux-amd64.tar.gz
-tar xzf go1.15.6.linux-amd64.tar.gz
-rm go1.15.6.linux-amd64.tar.gz
+wget https://golang.org/dl/go1.15.7.linux-amd64.tar.gz
+tar xzf go1.15.7.linux-amd64.tar.gz
+rm go1.15.7.linux-amd64.tar.gz
 
 npm install
 
