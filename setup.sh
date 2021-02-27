@@ -16,15 +16,15 @@ cd framework-comparison-2020
 curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-wget https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.1%2B9/OpenJDK15U-jdk_x64_linux_hotspot_15.0.1_9.tar.gz
-tar xzf OpenJDK15U-jdk_x64_linux_hotspot_15.0.1_9.tar.gz
-rm OpenJDK15U-jdk_x64_linux_hotspot_15.0.1_9.tar.gz
-mv jdk-15.0.1+9 openjdk
+wget https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.2%2B7/OpenJDK15U-jdk_x64_linux_hotspot_15.0.2_7.tar.gz
+tar xzf OpenJDK15U-jdk_x64_linux_hotspot_15.0.2_7.tar.gz
+rm OpenJDK15U-jdk_x64_linux_hotspot_15.0.2_7.tar.gz
+mv jdk-15.0.2+7 openjdk
 
-wget https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.1%2B9_openj9-0.23.0/OpenJDK15U-jre_x64_linux_openj9_15.0.1_9_openj9-0.23.0.tar.gz
-tar xzf OpenJDK15U-jre_x64_linux_openj9_15.0.1_9_openj9-0.23.0.tar.gz
-rm OpenJDK15U-jre_x64_linux_openj9_15.0.1_9_openj9-0.23.0.tar.gz
-mv jdk-15.0.1+9-jre openj9
+wget https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.2%2B7_openj9-0.24.0/OpenJDK15U-jre_x64_linux_openj9_15.0.2_7_openj9-0.24.0.tar.gz
+tar xzf OpenJDK15U-jre_x64_linux_openj9_15.0.2_7_openj9-0.24.0.tar.gz
+rm OpenJDK15U-jre_x64_linux_openj9_15.0.2_7_openj9-0.24.0.tar.gz
+mv jdk-15.0.2+7-jre openj9
 
 wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.0.0/graalvm-ce-java11-linux-amd64-21.0.0.tar.gz
 tar xzf graalvm-ce-java11-linux-amd64-21.0.0.tar.gz
@@ -34,14 +34,14 @@ export JAVA_HOME=`pwd`/graalvm-ce-java11-21.0.0
 PATH=$JAVA_HOME/bin:$PATH
 gu install native-image
 
-wget https://github.com/loadimpact/k6/releases/download/v0.29.0/k6-v0.29.0-linux64.tar.gz
-tar xzf k6-v0.29.0-linux64.tar.gz
-mv k6-v0.29.0-linux64/k6 .
+wget https://github.com/loadimpact/k6/releases/download/v0.30.0/k6-v0.30.0-linux64.tar.gz
+tar xzf k6-v0.30.0-linux64.tar.gz
+mv k6-v0.30.0-linux64/k6 .
 rm -fr k6-*
 
-wget https://golang.org/dl/go1.15.7.linux-amd64.tar.gz
-tar xzf go1.15.7.linux-amd64.tar.gz
-rm go1.15.7.linux-amd64.tar.gz
+wget https://golang.org/dl/go1.16.linux-amd64.tar.gz
+tar xzf go1.16.linux-amd64.tar.gz
+rm go1.16.linux-amd64.tar.gz
 
 npm install
 
