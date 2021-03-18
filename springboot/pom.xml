@@ -86,22 +86,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.graalvm.nativeimage</groupId>
-				<artifactId>native-image-maven-plugin</artifactId>
-				<version>21.0.0</version>
-				<configuration>
-					<mainClass>com.example.springboot.DemoApplication</mainClass>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>native-image</goal>
-						</goals>
-						<phase>package</phase>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
 	<repositories>
