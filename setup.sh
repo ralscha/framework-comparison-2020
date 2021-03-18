@@ -45,6 +45,12 @@ rm go1.16.2.linux-amd64.tar.gz
 
 npm install
 
+cd springboot
+chmod 700
+./mvnw -Pnative-image package
+ mv target/com.example.springboot.demoapplication ../springboot-runner
+cd ..
+
 cd micronaut
 chmod 700 mvnw
 ./mvnw clean package -Dpackaging=native-image
@@ -52,20 +58,17 @@ cp target/micronaut ../micronaut-runner
 cd ..
 
 cd quarkus
-mv src/main/resources/application.properties .
 chmod 700 mvnw
 ./mvnw clean package -Pnative
-cp target/quarkus-runner ..
-mv application.properties src/main/resources/
+cp target/quarkus-0.0.1-runner ../quarkus-runner
 cd ..
 
 export JAVA_HOME=`pwd`/openjdk
 PATH=$JAVA_HOME/bin:$PATH
 
 cd springboot
-chmod 700 mvnw
 ./mvnw clean package
-cp target/springboot.jar ..
+cp target/springboot-exec.jar ../springboot.jar
 cd ..
 
 cd micronaut
@@ -75,7 +78,7 @@ cd ..
 
 cd quarkus
 ./mvnw clean package
-cp target/quarkus-runner.jar ..
+cp target/quarkus-app .. -r
 cd ..
 
 ./go/bin/go build -o goexample go/go-example.go
