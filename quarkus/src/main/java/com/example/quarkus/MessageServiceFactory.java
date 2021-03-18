@@ -1,11 +1,11 @@
 package com.example.quarkus;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
-import javax.inject.Singleton;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-@Singleton
+@ApplicationScoped
 public class MessageServiceFactory {
 
 	private final String message;
@@ -15,7 +15,7 @@ public class MessageServiceFactory {
 		this.message = message;
 	}
 
-	@Singleton
+	@ApplicationScoped
 	@Produces
 	MessageService messageService() {
 		return new MessageService(this.message);
