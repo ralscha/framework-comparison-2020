@@ -46,7 +46,7 @@ rm go1.16.2.linux-amd64.tar.gz
 npm install
 
 cd springboot
-chmod 700
+chmod 700 mvnw
 ./mvnw -Pnative-image package
  mv target/com.example.springboot.demoapplication ../springboot-runner
 cd ..
