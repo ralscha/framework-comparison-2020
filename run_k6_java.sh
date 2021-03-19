@@ -25,7 +25,7 @@ pkill java
 sleep 30
 
 
-java $JAVA_OPTS_SPRING -jar springboot.jar &
+java -jar springboot.jar &
 sleep 10
 ./k6 run --summary-export=springboot1-$JAVA_VM.json k6.js
 ./k6 run --summary-export=springboot2-$JAVA_VM.json k6.js
