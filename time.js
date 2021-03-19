@@ -8,17 +8,7 @@ if (args.length == 0) {
   console.log('The path of java executable jar must be specified !');
 }
 
-const javaOpts = process.env.JAVA_OPTS;
-const spawnOpts = ["-jar", args[0]];
-
-if (javaOpts) {
-  for (const jo of javaOpts.split(' ')) {
-    const jor = jo.replace('%FRAMEWORK%', args[0]);
-    spawnOpts.unshift(jor);
-  }
-}
-
-const proc = (args[0].endsWith(".jar") ? spawn("java", spawnOpts) : spawn(args[0]));
+const proc = (args[0].endsWith(".jar") ? spawn("java", ["-jar", args[0]]) : spawn(args[0]));
 
 const startTime = new Date().getTime();
 const intervalHandle = setInterval(() => {
