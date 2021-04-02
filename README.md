@@ -1,4 +1,4 @@
-# Micronaut 2.4.1  vs Quarkus 1.12.2 vs Spring Boot 2.4.4 on OpenJdk 16, OpenJ9 16 and GraalVM Native Image 21.0.0.2 vs Go 1.16.2
+# Micronaut 2.4.1  vs Quarkus 1.13.0 vs Spring Boot 2.4.4 on OpenJdk 16, OpenJ9 16 and GraalVM Native Image 21.0.0.2 vs Go 1.16.2
 
 This repo contains a performance comparison between Micronaut vs Quarkus vs Spring Boot on JDK 16 and GraalVM Native Image and Go.    
 
@@ -65,20 +65,20 @@ pkill goecho
 
 | FRAMEWORK         | Package Size in Bytes | Time to First Response (ms) | K6: Requests per second | Memory Consumption After K6 (RSS in kB) |
 |---|--:|--:|--:|--:|
-| Micronaut 2.4.1 OpenJDK   |13_599_879 *  | 2_011  | 14_526     | 647_872 |
-| Micronaut 2.4.1 OpenJ9    |              | 2_719  | 13_060     | 381_689 |
-| Micronaut 2.4.1 Native    |62_237_696    | 66     | 10_853     | 701_068 |
-| Quarkus 1.12.2  OpenJDK   |16_248_194 *  | 1_740  | 10_957     | 554_704 |
-| Quarkus 1.12.2  OpenJ9    |              | 2_683  | 10_497     | 273_008 |
-| Quarkus 1.12.2 Native     |37_401_832    | 39     | 8_882      | 639_700 |
-| Spring Boot 2.4.4 OpenJDK |20_846_051 *  | 3_874  | 13_208     | 621_153 |
-| Spring Boot 2.4.4 OpenJ9  |              | 4_783  | 12_230     | 320_545 |
-| Go 1.16.2                 |**6_361_418** | **27** | 14_696     | **35_960** |
-| Go Fibre 2                |8_837_334     | 34     | **17_650** | 37_990 |
-| Go Echo                   |7_502_306     | 32     | 15_169     | 40_161 |
+| Micronaut 2.4.1 OpenJDK   |  13_599_879 * | 1_943   | 14_566     | 663_999 |
+| Micronaut 2.4.1 OpenJ9    |               | 2_622   | 13_299     | 378_687 |
+| Micronaut 2.4.1 Native    | 62_237_696    | 78      | 11_109     | 701_234 |
+| Quarkus 1.13.0  OpenJDK   | 14_517_778 *  | 1_611   | 17_250     | 249_554 |
+| Quarkus 1.13.0  OpenJ9    |               | 2_086   | 16_941     | 132_686 |
+| Quarkus 1.13.0 Native     |  32_970_216   | 38      | 13_903     | 318_043 |
+| Spring Boot 2.4.4 OpenJDK | 20_846_052 *  | 3_792   | 13_611     | 590_344 |
+| Spring Boot 2.4.4 OpenJ9  |               | 4_776   | 11_979     | 307_959 |
+| Go 1.16.2                 | **6_361_418** | 33      | 15_212     | **35_801** |
+| Go Fibre 2.7.1            | 8_836_737     | **31**  | **18_287** | 37_111 |
+| Go Echo  4.2.1            | 7_502_306     | 32      | 15_025     | 40_046 |
 
 \* = requires JVM
 
 Tests ran on a [Hetzner](https://www.hetzner.com/) VPS CX41 (4 VCPU, 16 GB RAM)      
 OS: Ubuntu Server 20.04     
-20th March 2021
+2 April 2021
