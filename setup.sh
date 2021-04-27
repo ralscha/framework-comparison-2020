@@ -26,11 +26,11 @@ tar xzf OpenJDK16-jre_x64_linux_openj9_16_36_openj9-0.25.0.tar.gz
 rm OpenJDK16-jre_x64_linux_openj9_16_36_openj9-0.25.0.tar.gz
 mv jdk-16+36-jre openj9
 
-wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.0.0.2/graalvm-ce-java11-linux-amd64-21.0.0.2.tar.gz
-tar xzf graalvm-ce-java11-linux-amd64-21.0.0.2.tar.gz
-rm graalvm-ce-java11-linux-amd64-21.0.0.2.tar.gz
+wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.1.0/graalvm-ce-java11-linux-amd64-21.1.0.tar.gz
+tar xzf graalvm-ce-java11-linux-amd64-21.1.0.tar.gz
+rm graalvm-ce-java11-linux-amd64-21.1.0.tar.gz
 apt-get install build-essential libz-dev zlib1g-dev -y
-export JAVA_HOME=`pwd`/graalvm-ce-java11-21.0.0.2
+export JAVA_HOME=`pwd`/graalvm-ce-java11-21.1.0
 PATH=$JAVA_HOME/bin:$PATH
 gu install native-image
 
