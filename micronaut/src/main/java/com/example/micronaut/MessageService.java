@@ -1,8 +1,7 @@
 package com.example.micronaut;
 
-import javax.inject.Singleton;
-
 import io.micronaut.context.annotation.Property;
+import jakarta.inject.Singleton;
 
 @Singleton
 public class MessageService {
