@@ -16,21 +16,22 @@ cd framework-comparison-2020
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-wget https://github.com/AdoptOpenJDK/openjdk16-binaries/releases/download/jdk-16.0.1%2B9/OpenJDK16U-jdk_x64_linux_hotspot_16.0.1_9.tar.gz
-tar xzf OpenJDK16U-jdk_x64_linux_hotspot_16.0.1_9.tar.gz
-rm OpenJDK16U-jdk_x64_linux_hotspot_16.0.1_9.tar.gz
-mv jdk-16.0.1+9 openjdk
 
-wget https://github.com/AdoptOpenJDK/openjdk16-binaries/releases/download/jdk-16.0.1%2B9_openj9-0.26.0/OpenJDK16U-jdk_x64_linux_openj9_16.0.1_9_openj9-0.26.0.tar.gz
-tar xzf OpenJDK16U-jdk_x64_linux_openj9_16.0.1_9_openj9-0.26.0.tar.gz
-rm OpenJDK16U-jdk_x64_linux_openj9_16.0.1_9_openj9-0.26.0.tar.gz
-mv jdk-16.0.1+9 openj9
+wget https://github.com/adoptium/temurin16-binaries/releases/download/jdk-16.0.2%2B7/OpenJDK16U-jdk_x64_linux_hotspot_16.0.2_7.tar.gz
+tar xzf OpenJDK16U-jdk_x64_linux_hotspot_16.0.2_7.tar.gz
+rm OpenJDK16U-jdk_x64_linux_hotspot_16.0.2_7.tar.gz
+mv jdk-16.0.2+7 openjdk
 
-wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.1.0/graalvm-ce-java11-linux-amd64-21.1.0.tar.gz
-tar xzf graalvm-ce-java11-linux-amd64-21.1.0.tar.gz
-rm graalvm-ce-java11-linux-amd64-21.1.0.tar.gz
+wget https://github.com/AdoptOpenJDK/semeru16-binaries/releases/download/jdk-16.0.2%2B7_openj9-0.27.0/ibm-semeru-open-jdk_x64_linux_16.0.2_7_openj9-0.27.0.tar.gz
+tar xzf ibm-semeru-open-jdk_x64_linux_16.0.2_7_openj9-0.27.0.tar.gz
+rm ibm-semeru-open-jdk_x64_linux_16.0.2_7_openj9-0.27.0.tar.gz
+mv jdk-16.0.2+7 openj9
+
+wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.2.0/graalvm-ce-java11-linux-amd64-21.2.0.tar.gz
+tar xzf graalvm-ce-java11-linux-amd64-21.2.0.tar.gz
+rm graalvm-ce-java11-linux-amd64-21.2.0.tar.gz
 apt-get install build-essential libz-dev zlib1g-dev -y
-export JAVA_HOME=`pwd`/graalvm-ce-java11-21.1.0
+export JAVA_HOME=`pwd`/graalvm-ce-java11-21.2.0
 PATH=$JAVA_HOME/bin:$PATH
 gu install native-image
 
@@ -39,9 +40,9 @@ tar xzf k6-v0.33.0-linux64.tar.gz
 mv k6-v0.33.0-linux64/k6 .
 rm -fr k6-*
 
-wget https://golang.org/dl/go1.16.5.linux-amd64.tar.gz
-tar xzf go1.16.5.linux-amd64.tar.gz
-rm go1.16.5.linux-amd64.tar.gz
+wget https://golang.org/dl/go1.17.linux-amd64.tar.gz
+tar xzf go1.17.linux-amd64.tar.gz
+rm go1.17.linux-amd64.tar.gz
 
 npm install
 
