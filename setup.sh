@@ -66,7 +66,7 @@ PATH=$JAVA_HOME/bin:$PATH
 
 cd springboot
 ./mvnw clean package
-cp target/springboot-exec.jar ../springboot.jar
+cp target/springboot.jar ../springboot.jar
 cd ..
 
 cd micronaut
