@@ -35,9 +35,9 @@ export JAVA_HOME=`pwd`/graalvm-ce-java11-21.2.0
 PATH=$JAVA_HOME/bin:$PATH
 gu install native-image
 
-wget https://github.com/loadimpact/k6/releases/download/v0.33.0/k6-v0.33.0-linux64.tar.gz
-tar xzf k6-v0.33.0-linux64.tar.gz
-mv k6-v0.33.0-linux64/k6 .
+wget https://github.com/grafana/k6/releases/download/v0.33.0/k6-v0.33.0-linux-amd64.tar.gz
+tar xzf k6-v0.33.0-linux-amd64.tar.gz
+mv k6-v0.33.0-linux-amd64/k6 .
 rm -fr k6-*
 
 wget https://golang.org/dl/go1.17.linux-amd64.tar.gz
