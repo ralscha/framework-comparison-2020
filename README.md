@@ -1,4 +1,4 @@
-# Micronaut 2.4.1  vs Quarkus 1.13.0 vs Spring Boot 2.4.4 on OpenJdk 16, OpenJ9 16 and GraalVM Native Image 21.0.0.2 vs Go 1.16.2
+# Micronaut 3.0.0  vs Quarkus 2.1.3 vs Spring Boot 2.5.4 on OpenJdk 16, OpenJ9 16 and GraalVM Native Image 21.2.0 vs Go 1.17
 
 This repo contains a performance comparison between Micronaut vs Quarkus vs Spring Boot on JDK 16 and GraalVM Native Image and Go.    
 
@@ -63,22 +63,22 @@ pkill goecho
 
 ### Results
 
-| FRAMEWORK         | Package Size in Bytes | Time to First Response (ms) | K6: Requests per second | Memory Consumption After K6 (RSS in kB) |
+| FRAMEWORK              | Package Size in Bytes | Time to First Response (ms) | K6: Requests per second | Memory Consumption After K6 (RSS in kB) |
 |---|--:|--:|--:|--:|
-| Micronaut 2.4.1 OpenJDK   |  13_599_879 * | 1_943   | 14_566     | 663_999 |
-| Micronaut 2.4.1 OpenJ9    |               | 2_622   | 13_299     | 378_687 |
-| Micronaut 2.4.1 Native    | 62_237_696    | 78      | 11_109     | 701_234 |
-| Quarkus 1.13.0  OpenJDK   | 14_517_778 *  | 1_611   | 17_250     | 249_554 |
-| Quarkus 1.13.0  OpenJ9    |               | 2_086   | 16_941     | 132_686 |
-| Quarkus 1.13.0 Native     |  32_970_216   | 38      | 13_903     | 318_043 |
-| Spring Boot 2.4.4 OpenJDK | 20_846_052 *  | 3_792   | 13_611     | 590_344 |
-| Spring Boot 2.4.4 OpenJ9  |               | 4_776   | 11_979     | 307_959 |
-| Go 1.16.2                 | **6_361_418** | 33      | 15_212     | **35_801** |
-| Go Fibre 2.7.1            | 8_836_737     | **31**  | **18_287** | 37_111 |
-| Go Echo  4.2.1            | 7_502_306     | 32      | 15_025     | 40_046 |
+| Micronaut 3.0.0 OpenJDK   |  13_335_768 * |  1_645  |  19_439    | 568_052 |
+| Micronaut 3.0.0 OpenJ9    |               |  2_234  |  18_554    | 319_898 |
+| Micronaut 3.0.0 Native    | 53_754_888    |  69     |  15_023    | 698_839 |
+| Quarkus 2.1.3  OpenJDK    | 15_556_608 *  |  1_485  |  21_774    | 256_806 |
+| Quarkus 2.1.3  OpenJ9     |               |  1_835  |  21_280    | 138_576 |
+| Quarkus 2.1.3 Native      |  43_990_928   |  60     |  17_710    | 327_425 |
+| Spring Boot 2.5.4 OpenJDK | 21_353_334 *  |  3_176  |  17_407    | 570_207 |
+| Spring Boot 2.5.4 OpenJ9  |               |  3_744  |  15_604    | 325_115 |
+| Go 1.17                   | **6_298_246** | **24**  |  19_025    | **35_759** |
+| Go 1.17 Fibre 2.17.0      | 8_208_895     |  28     | **23_289** | 36_736 |
+| Go 1.17 Echo  4.5.0       | 6_867_078     |  25     |  19_051    | 39_632 |
 
 \* = requires JVM
 
 Tests ran on a [Hetzner](https://www.hetzner.com/) VPS CX41 (4 VCPU, 16 GB RAM)      
 OS: Ubuntu Server 20.04     
-2 April 2021
+21 August 2021
