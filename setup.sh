@@ -13,36 +13,31 @@ apt-get install docker-ce docker-ce-cli containerd.io
 git clone https://github.com/ralscha/framework-comparison-2020.git
 cd framework-comparison-2020
 
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
+wget https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17%2B35/OpenJDK17-jdk_x64_linux_hotspot_17_35.tar.gz
+tar xzf OpenJDK17-jdk_x64_linux_hotspot_17_35.tar.gz
+rm OpenJDK17-jdk_x64_linux_hotspot_17_35.tar.gz
+mv jdk-17+35 openjdk
 
-wget https://github.com/adoptium/temurin16-binaries/releases/download/jdk-16.0.2%2B7/OpenJDK16U-jdk_x64_linux_hotspot_16.0.2_7.tar.gz
-tar xzf OpenJDK16U-jdk_x64_linux_hotspot_16.0.2_7.tar.gz
-rm OpenJDK16U-jdk_x64_linux_hotspot_16.0.2_7.tar.gz
-mv jdk-16.0.2+7 openjdk
-
-wget https://github.com/AdoptOpenJDK/semeru16-binaries/releases/download/jdk-16.0.2%2B7_openj9-0.27.0/ibm-semeru-open-jdk_x64_linux_16.0.2_7_openj9-0.27.0.tar.gz
-tar xzf ibm-semeru-open-jdk_x64_linux_16.0.2_7_openj9-0.27.0.tar.gz
-rm ibm-semeru-open-jdk_x64_linux_16.0.2_7_openj9-0.27.0.tar.gz
-mv jdk-16.0.2+7 openj9
-
-wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.2.0/graalvm-ce-java11-linux-amd64-21.2.0.tar.gz
-tar xzf graalvm-ce-java11-linux-amd64-21.2.0.tar.gz
-rm graalvm-ce-java11-linux-amd64-21.2.0.tar.gz
+wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.3.0/graalvm-ce-java17-linux-amd64-21.3.0.tar.gz
+tar xzf graalvm-ce-java17-linux-amd64-21.3.0.tar.gz
+rm graalvm-ce-java17-linux-amd64-21.3.0.tar.gz
 apt-get install build-essential libz-dev zlib1g-dev -y
-export JAVA_HOME=`pwd`/graalvm-ce-java11-21.2.0
+mv graalvm-ce-java17-21.3.0 graal
+export JAVA_HOME=`pwd`/graal
 PATH=$JAVA_HOME/bin:$PATH
 gu install native-image
 
-wget https://github.com/grafana/k6/releases/download/v0.33.0/k6-v0.33.0-linux-amd64.tar.gz
-tar xzf k6-v0.33.0-linux-amd64.tar.gz
-mv k6-v0.33.0-linux-amd64/k6 .
+wget https://github.com/grafana/k6/releases/download/v0.34.1/k6-v0.34.1-linux-amd64.tar.gz
+tar xzf k6-v0.34.1-linux-amd64.tar.gz
+mv k6-v0.34.1-linux-amd64/k6 .
 rm -fr k6-*
 
-wget https://golang.org/dl/go1.17.linux-amd64.tar.gz
-tar xzf go1.17.linux-amd64.tar.gz
-rm go1.17.linux-amd64.tar.gz
+wget https://golang.org/dl/go1.17.2.linux-amd64.tar.gz
+tar xzf go1.17.2.linux-amd64.tar.gz
+rm go1.17.2.linux-amd64.tar.gz
 
 npm install
 

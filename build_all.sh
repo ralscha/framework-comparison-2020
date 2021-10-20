@@ -1,6 +1,6 @@
 git pull
 
-export JAVA_HOME=`pwd`/graalvm-ce-java11-21.2.0
+export JAVA_HOME=`pwd`/graalvm
 PATH=$JAVA_HOME/bin:$PATH
 
 cd springboot
