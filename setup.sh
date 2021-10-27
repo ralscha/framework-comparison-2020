@@ -16,7 +16,7 @@ cd framework-comparison-2020
 curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.1%2B12/OpenJDK17U-jdk_x64_linux_hotspot_17.0.1_12.tar.gz
+wget https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.1%2B12/OpenJDK17U-jdk_x64_linux_hotspot_17.0.1_12.tar.gz
 tar xzf OpenJDK17U-jdk_x64_linux_hotspot_17.0.1_12.tar.gz
 rm OpenJDK17U-jdk_x64_linux_hotspot_17.0.1_12.tar.gz
 mv jdk-17.0.1+12 openjdk
