@@ -16,10 +16,10 @@ cd framework-comparison-2020
 curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-wget https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17%2B35/OpenJDK17-jdk_x64_linux_hotspot_17_35.tar.gz
-tar xzf OpenJDK17-jdk_x64_linux_hotspot_17_35.tar.gz
-rm OpenJDK17-jdk_x64_linux_hotspot_17_35.tar.gz
-mv jdk-17+35 openjdk
+https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.1%2B12/OpenJDK17U-jdk_x64_linux_hotspot_17.0.1_12.tar.gz
+tar xzf OpenJDK17U-jdk_x64_linux_hotspot_17.0.1_12.tar.gz
+rm OpenJDK17U-jdk_x64_linux_hotspot_17.0.1_12.tar.gz
+mv jdk-17.0.1+12 openjdk
 
 wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.3.0/graalvm-ce-java17-linux-amd64-21.3.0.tar.gz
 tar xzf graalvm-ce-java17-linux-amd64-21.3.0.tar.gz
