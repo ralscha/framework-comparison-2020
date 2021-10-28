@@ -41,11 +41,6 @@ rm go1.17.2.linux-amd64.tar.gz
 
 npm install
 
-cd springboot
-./mvnw -Pnative-image package
- mv target/com.example.springboot.demoapplication ../springboot-runner
-cd ..
-
 cd micronaut
 ./mvnw clean package -Dpackaging=native-image
 cp target/micronaut ../micronaut-runner
