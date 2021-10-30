@@ -1,4 +1,4 @@
-# Micronaut 3.1.3  vs Quarkus 2.4.0 vs Spring Boot 2.5.6 on OpenJdk 17 nad GraalVM Native Image 21.3.0 vs Go 1.17.2
+# Micronaut 3.1.3  vs Quarkus 2.4.0 vs Spring Boot 2.5.6 on OpenJdk 17 and GraalVM Native Image 21.3.0 vs Go 1.17.2
 
 This repo contains a performance comparison between Micronaut vs Quarkus vs Spring Boot on JDK 17 and GraalVM Native Image and Go.    
 
