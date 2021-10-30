@@ -9,7 +9,9 @@ ps x -o rss,vsz,command | grep java
 sleep 5
 ps x -o rss,vsz,command | grep java
 pkill java
-sleep 30
+sleep 10
+pkill -9 java
+sleep 5
 
 java -jar ./quarkus-app/quarkus-run.jar &
 sleep 10
@@ -22,7 +24,9 @@ ps x -o rss,vsz,command | grep java
 sleep 5
 ps x -o rss,vsz,command | grep java
 pkill java
-sleep 30
+sleep 10
+pkill -9 java
+sleep 5
 
 
 java -jar springboot.jar &
@@ -36,4 +40,6 @@ ps x -o rss,vsz,command | grep java
 sleep 5
 ps x -o rss,vsz,command | grep java
 pkill java
-sleep 30
+sleep 10
+pkill -9 java
+sleep 5

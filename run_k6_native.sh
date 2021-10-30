@@ -9,7 +9,9 @@ ps x -o rss,vsz,command | grep micronaut-runner
 sleep 5
 ps x -o rss,vsz,command | grep micronaut-runner
 pkill micronaut
-sleep 30
+sleep 10
+pkill -9 micronaut
+sleep 5
 
 ./quarkus-runner &
 sleep 5
@@ -22,7 +24,9 @@ ps x -o rss,vsz,command | grep quarkus-runner
 sleep 5
 ps x -o rss,vsz,command | grep quarkus-runner
 pkill quarkus
-sleep 30
+sleep 10
+pkill -9 quarkus
+sleep 5
 
 ./goexample &
 sleep 5
@@ -35,6 +39,9 @@ ps x -o rss,vsz,command | grep goexample
 sleep 5
 ps x -o rss,vsz,command | grep goexample
 pkill goexample
+sleep 10
+pkill -9 goexample
+sleep 5
 
 
 ./gofibre &
@@ -48,7 +55,9 @@ ps x -o rss,vsz,command | grep gofibre
 sleep 5
 ps x -o rss,vsz,command | grep gofibre
 pkill gofibre
-
+sleep 10
+pkill -9 gofibre
+sleep 5
 
 ./goecho &
 sleep 5
@@ -61,3 +70,6 @@ ps x -o rss,vsz,command | grep goecho
 sleep 5
 ps x -o rss,vsz,command | grep goecho
 pkill goecho
+sleep 10
+pkill -9 goecho
+sleep 5
