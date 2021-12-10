@@ -30,14 +30,14 @@ export JAVA_HOME=`pwd`/graal
 PATH=$JAVA_HOME/bin:$PATH
 gu install native-image
 
-wget https://github.com/grafana/k6/releases/download/v0.34.1/k6-v0.34.1-linux-amd64.tar.gz
-tar xzf k6-v0.34.1-linux-amd64.tar.gz
-mv k6-v0.34.1-linux-amd64/k6 .
+wget https://github.com/grafana/k6/releases/download/v0.35.0/k6-v0.35.0-linux-amd64.tar.gz
+tar xzf k6-v0.35.0-linux-amd64.tar.gz
+mv k6-v0.35.0-linux-amd64/k6 .
 rm -fr k6-*
 
-wget https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
-tar xzf go1.17.3.linux-amd64.tar.gz
-rm go1.17.3.linux-amd64.tar.gz
+wget https://golang.org/dl/go1.17.4.linux-amd64.tar.gz
+tar xzf go1.17.4.linux-amd64.tar.gz
+rm go1.17.4.linux-amd64.tar.gz
 
 npm install
 
