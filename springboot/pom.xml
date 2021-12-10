@@ -15,7 +15,6 @@
 
 	<properties>
 		<java.version>17</java.version>
-		<repackage.classifier />
 		<spring-native.version>0.11.0</spring-native.version>
 	</properties>
 
@@ -89,10 +88,6 @@
 	<profiles>
 		<profile>
 			<id>native</id>
-			<properties>
-				<repackage.classifier>exec</repackage.classifier>
-				<native-buildtools.version>0.9.8</native-buildtools.version>
-			</properties>
 			<dependencies>
 				<dependency>
 					<groupId>org.junit.platform</groupId>
@@ -102,6 +97,13 @@
 			</dependencies>
 			<build>
 				<plugins>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                        <configuration>
+                            <classifier>exec</classifier>
+                        </configuration>
+                    </plugin>
 					<plugin>
 						<groupId>org.springframework.experimental</groupId>
 						<artifactId>spring-aot-maven-plugin</artifactId>
@@ -124,7 +126,7 @@
 					<plugin>
 						<groupId>org.graalvm.buildtools</groupId>
 						<artifactId>native-maven-plugin</artifactId>
-						<version>${native-buildtools.version}</version>
+						<version>0.9.8</version>
 						<extensions>true</extensions>
 						<executions>
 							<execution>
