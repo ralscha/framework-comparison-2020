@@ -43,7 +43,7 @@ npm install
 
 cd springboot
 ./mvnw -Pnative -DskipTests clean package
-cp target/springboot ../springboot
+cp target/springboot ../springboot-runner
 cd ..
 
 cd micronaut

@@ -13,16 +13,16 @@ sleep 10
 pkill -9 quarkus
 sleep 5
 
-./springboot &
+./springboot-runner &
 sleep 5
 ./k6 run --summary-export=springboot-native1.json k6.js
 ./k6 run --summary-export=springboot-native2.json k6.js
 ./k6 run --summary-export=springboot-native3.json k6.js
-ps x -o rss,vsz,command | grep springboot
+ps x -o rss,vsz,command | grep springboot-runner
 sleep 5
-ps x -o rss,vsz,command | grep springboot
+ps x -o rss,vsz,command | grep springboot-runner
 sleep 5
-ps x -o rss,vsz,command | grep springboot
+ps x -o rss,vsz,command | grep springboot-runner
 pkill springboot
 sleep 10
 pkill -9 springboot
