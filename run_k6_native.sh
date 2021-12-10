@@ -1,18 +1,3 @@
-./micronaut-runner &
-sleep 5
-./k6 run --summary-export=micronaut-native1.json k6.js
-./k6 run --summary-export=micronaut-native2.json k6.js
-./k6 run --summary-export=micronaut-native3.json k6.js
-ps x -o rss,vsz,command | grep micronaut-runner
-sleep 5
-ps x -o rss,vsz,command | grep micronaut-runner
-sleep 5
-ps x -o rss,vsz,command | grep micronaut-runner
-pkill micronaut
-sleep 10
-pkill -9 micronaut
-sleep 5
-
 ./quarkus-runner &
 sleep 5
 ./k6 run --summary-export=quarkus-native1.json k6.js
@@ -26,6 +11,36 @@ ps x -o rss,vsz,command | grep quarkus-runner
 pkill quarkus
 sleep 10
 pkill -9 quarkus
+sleep 5
+
+./springboot &
+sleep 5
+./k6 run --summary-export=springboot-native1.json k6.js
+./k6 run --summary-export=springboot-native2.json k6.js
+./k6 run --summary-export=springboot-native3.json k6.js
+ps x -o rss,vsz,command | grep springboot
+sleep 5
+ps x -o rss,vsz,command | grep springboot
+sleep 5
+ps x -o rss,vsz,command | grep springboot
+pkill springboot
+sleep 10
+pkill -9 springboot
+sleep 5
+
+./micronaut-runner &
+sleep 5
+./k6 run --summary-export=micronaut-native1.json k6.js
+./k6 run --summary-export=micronaut-native2.json k6.js
+./k6 run --summary-export=micronaut-native3.json k6.js
+ps x -o rss,vsz,command | grep micronaut-runner
+sleep 5
+ps x -o rss,vsz,command | grep micronaut-runner
+sleep 5
+ps x -o rss,vsz,command | grep micronaut-runner
+pkill micronaut
+sleep 10
+pkill -9 micronaut
 sleep 5
 
 ./goexample &

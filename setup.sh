@@ -42,7 +42,7 @@ rm go1.17.4.linux-amd64.tar.gz
 npm install
 
 cd springboot
-./mvnw clean package -Dnative
+./mvnw -Pnative -DskipTests clean package
 cp target/springboot ../springboot
 cd ..
 
