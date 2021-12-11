@@ -1,4 +1,4 @@
-# Micronaut 3.1.3  vs Quarkus 2.4.0 vs Spring Boot 2.5.6 on OpenJdk 17 and GraalVM Native Image 21.3.0 vs Go 1.17.2
+# Micronaut 3.2.1  vs Quarkus 2.5.2.Final vs Spring Boot 2.6.1 on OpenJdk 17 and GraalVM Native Image 21.3.0 vs Go 1.17.5
 
 This repo contains a performance comparison between Micronaut vs Quarkus vs Spring Boot on JDK 17 and GraalVM Native Image and Go.    
 
@@ -34,6 +34,11 @@ java -jar springboot.jar &
 ps x -o rss,vsz,command | grep java
 pkill java
 
+./springboot &
+./k6 run k6.js
+ps x -o rss,vsz,command | grep springboot
+pkill springboot
+
 ./micronaut-runner &
 ./k6 run k6.js
 ps x -o rss,vsz,command | grep micronaut-runner
@@ -65,17 +70,19 @@ pkill goecho
 
 | FRAMEWORK              | Package Size in Bytes | Time to First Response (ms) | K6: Requests per second | Memory Consumption After K6 (RSS in kB) |
 |---|--:|--:|--:|--:|
-| Micronaut 3.1.3 OpenJDK   | 13'476'757 *  | 1_709   |  18_013    | 571_051    |
-| Micronaut 3.1.3 Native    | 58'386'288    |    67   |  13_687    | 575_767    |
-| Quarkus 2.4.0  OpenJDK    | 16'442'242 *  | 1_496   |  15_626    | 331_302    |
-| Quarkus 2.4.0 Native      | 46'389'672    |    38   |  12_475    | 454_149    |
-| Spring Boot 2.5.6 OpenJDK | 21'354'506 *  | 2_977   |  16_288    | 549_003    |
-| Go 1.17.2                 | **6_300_406** |  **27** |  17_997    | **35_871** |
-| Go 1.17.2 Fibre 2.20.2    | 9_321_859     |    30   | **21_758** | 46_067     |
-| Go 1.17 Echo  4.6.1       |  6_869_017    |    32   |  17_999    | 39_608     |
+| Micronaut OpenJDK    | * 13_527_397  | 1_759 | 16_636   | 608_435    |
+| Micronaut Native     | 57_669_488  | 67  | 12_848   |  525_108   |
+| Quarkus OpenJDK      | * 16_362_065  | 1_483 | 14_533   | 345_133    |
+| Quarkus Native       | 48_212_016  | 36 |  11_570  | 466_209    |
+| Spring Boot OpenJDK  | * 21_655_017  | 3_248 | 15_348   |  526_475   |
+| Spring Boot Native   | 83_377_496  | 85 |  8_693  | 516_914    |
+| Go                   | 6_299_602   | 23 | 16_999   |  35_474   |
+| Go Fibre 2.23.0      | 9_269_874   | 26 | 20_408   |  45_103   |
+| Go Echo  4.6.1       | 6_868_245   | 23 | 17_161   |  39_502   |
 
 \* = requires JVM
 
 Tests ran on a [Hetzner](https://www.hetzner.com/) VPS CX41 (4 VCPU, 16 GB RAM)      
 OS: Ubuntu Server 20.04     
-30 October 2021
+11 December 2021
+
