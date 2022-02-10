@@ -82,7 +82,7 @@ pkill goecho
 
 \* = requires JVM
 
-Tests ran on a [Hetzner](https://www.hetzner.com/) VPS CX41 (4 VCPU, 16 GB RAM)      
+Tests ran on a [Hetzner](https://hetzner.cloud/?ref=n8nOAQHMszMa) (referral link) VPS CX41 (4 VCPU, 16 GB RAM)      
 OS: Ubuntu Server 20.04     
 11 December 2021
 

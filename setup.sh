@@ -16,28 +16,28 @@ cd framework-comparison-2020
 curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-wget https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.1%2B12/OpenJDK17U-jdk_x64_linux_hotspot_17.0.1_12.tar.gz
-tar xzf OpenJDK17U-jdk_x64_linux_hotspot_17.0.1_12.tar.gz
-rm OpenJDK17U-jdk_x64_linux_hotspot_17.0.1_12.tar.gz
-mv jdk-17.0.1+12 openjdk
+wget https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.2%2B8/OpenJDK17U-jdk_x64_linux_hotspot_17.0.2_8.tar.gz
+tar xzf OpenJDK17U-jdk_x64_linux_hotspot_17.0.2_8.tar.gz
+rm OpenJDK17U-jdk_x64_linux_hotspot_17.0.2_8.tar.gz
+mv jdk-17.0.2+8 openjdk
 
-wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.3.0/graalvm-ce-java17-linux-amd64-21.3.0.tar.gz
-tar xzf graalvm-ce-java17-linux-amd64-21.3.0.tar.gz
-rm graalvm-ce-java17-linux-amd64-21.3.0.tar.gz
+wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-22.0.0.2/graalvm-ce-java17-linux-amd64-22.0.0.2.tar.gz
+tar xzf graalvm-ce-java17-linux-amd64-22.0.0.2.tar.gz
+rm graalvm-ce-java17-linux-amd64-22.0.0.2.tar.gz
 apt-get install build-essential libz-dev zlib1g-dev -y
-mv graalvm-ce-java17-21.3.0 graal
+mv graalvm-ce-java17-22.0.0.2 graal
 export JAVA_HOME=`pwd`/graal
 PATH=$JAVA_HOME/bin:$PATH
 gu install native-image
 
-wget https://github.com/grafana/k6/releases/download/v0.35.0/k6-v0.35.0-linux-amd64.tar.gz
-tar xzf k6-v0.35.0-linux-amd64.tar.gz
-mv k6-v0.35.0-linux-amd64/k6 .
+wget https://github.com/grafana/k6/releases/download/v0.36.0/k6-v0.36.0-linux-amd64.tar.gz
+tar xzf k6-v0.36.0-linux-amd64.tar.gz
+mv k6-v0.36.0-linux-amd64/k6 .
 rm -fr k6-*
 
-wget https://golang.org/dl/go1.17.5.linux-amd64.tar.gz
-tar xzf go1.17.5.linux-amd64.tar.gz
-rm go1.17.5.linux-amd64.tar.gz
+wget https://golang.org/dl/go1.17.6.linux-amd64.tar.gz
+tar xzf go1.17.6.linux-amd64.tar.gz
+rm go1.17.6.linux-amd64.tar.gz
 
 npm install
 
