@@ -11,8 +11,8 @@ apt install docker-ce -y
 git clone https://github.com/ralscha/framework-comparison-2020.git
 cd framework-comparison-2020
 
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-sudo apt-get install -y nodejs
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+apt-get install -y nodejs
 
 wget https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.1%2B10/OpenJDK18U-jdk_x64_linux_hotspot_18.0.1_10.tar.gz
 tar xzf OpenJDK18U-jdk_x64_linux_hotspot_18.0.1_10.tar.gz
