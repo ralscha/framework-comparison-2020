@@ -1,4 +1,4 @@
-# Micronaut 3.2.1  vs Quarkus 2.5.2.Final vs Spring Boot 2.6.1 on OpenJdk 17 and GraalVM Native Image 21.3.0 vs Go 1.17.5
+# Micronaut 3.4.3 vs Quarkus 2.9.1.Final vs Spring Boot 2.6.7 on OpenJdk 17 and GraalVM Native Image 22.1.0 vs Go 1.18.2
 
 This repo contains a performance comparison between Micronaut vs Quarkus vs Spring Boot on JDK 17 and GraalVM Native Image and Go.    
 
@@ -70,19 +70,19 @@ pkill goecho
 
 | FRAMEWORK              | Package Size in Bytes | Time to First Response (ms) | K6: Requests per second | Memory Consumption After K6 (RSS in kB) |
 |---|--:|--:|--:|--:|
-| Micronaut OpenJDK    | * 13_527_397  | 1_759 | 16_636   | 608_435    |
-| Micronaut Native     | 57_669_488  | 67  | 12_848   |  525_108   |
-| Quarkus OpenJDK      | * 16_362_065  | 1_483 | 14_533   | 345_133    |
-| Quarkus Native       | 48_212_016  | 36 |  11_570  | 466_209    |
-| Spring Boot OpenJDK  | * 21_655_017  | 3_248 | 15_348   |  526_475   |
-| Spring Boot Native   | 83_377_496  | 85 |  8_693  | 516_914    |
-| Go                   | 6_299_602   | 23 | 16_999   |  35_474   |
-| Go Fibre 2.23.0      | 9_269_874   | 26 | 20_408   |  45_103   |
-| Go Echo  4.6.1       | 6_868_245   | 23 | 17_161   |  39_502   |
+| Micronaut OpenJDK    | \* 13_602_163 | 1_687 | 16_843 | 486_915 |
+| Micronaut Native     | 57_380_592 | 68  | 12_848 | 82_449 |
+| Quarkus OpenJDK      | \* 16_694_751 | 1_512 | 14_808 | 329_800 |
+| Quarkus Native       | 46_405_232  | 41 | 12_359 | 394_152 |
+| Spring Boot OpenJDK  | \* 21_664_890 | 3_183 | 15_165 | 518_447 |
+| Spring Boot Native   | 76_567_536 | 89 | 8_800 | 90_636 |
+| Go                   | *6_466_706*  | *24* | 17_649 | 43_703 |
+| Go Fibre 2.33.0      | 8_574_092  | *24* | *20_750* | *41_597* |
+| Go Echo  4.7.2       | 7_066_174  | *24* | 17_584 | 47_298 |
 
 \* = requires JVM
 
 Tests ran on a [Hetzner](https://hetzner.cloud/?ref=n8nOAQHMszMa) (referral link) VPS CX41 (4 VCPU, 16 GB RAM)      
-OS: Ubuntu Server 20.04     
-11 December 2021
+OS: Ubuntu Server 22.04     
+18 May 2022
 
