@@ -4,8 +4,8 @@ export JAVA_HOME=`pwd`/graalvm
 PATH=$JAVA_HOME/bin:$PATH
 
 cd springboot
-./mvnw -Pnative-image package
- mv target/com.example.springboot.demoapplication ../springboot-runner
+./mvnw -Pnative -DskipTests clean package
+cp target/springboot ../springboot-runner
 cd ..
 
 cd micronaut
