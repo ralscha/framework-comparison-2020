@@ -1,6 +1,6 @@
 git pull
 
-export JAVA_HOME=`pwd`/graalvm
+export JAVA_HOME=`pwd`/graal
 PATH=$JAVA_HOME/bin:$PATH
 
 cd springboot
