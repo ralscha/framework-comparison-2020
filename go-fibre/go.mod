@@ -7,7 +7,7 @@ require (
 	github.com/gofiber/fiber/v2 v2.38.1
 	github.com/klauspost/compress v1.15.11 // indirect
 	github.com/valyala/fasthttp v1.40.0 // indirect
-	golang.org/x/sys v0.0.0-20220926163933-8cfa568d3c25 // indirect
+	golang.org/x/sys v0.0.0-20220928140112-f11e5e49a4ec // indirect
 )
 
 require (
