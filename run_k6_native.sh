@@ -88,3 +88,17 @@ pkill goecho
 sleep 10
 pkill -9 goecho
 sleep 5
+
+./rustdemo &
+sleep 5
+./k6 run --summary-export=rust_salvo_1.json k6.js
+./k6 run --summary-export=rust_salvo_2.json k6.js
+./k6 run --summary-export=rust_salvo_3.json k6.js
+ps x -o rss,vsz,command | grep rustdemo
+sleep 5
+ps x -o rss,vsz,command | grep rustdemo
+sleep 5
+ps x -o rss,vsz,command | grep rustdemo
+pkill rustdemo
+sleep 10
+pkill -9 rustdemo

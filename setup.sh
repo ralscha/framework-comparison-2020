@@ -8,16 +8,19 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 apt update
 apt install docker-ce -y
 
+curl https://sh.rustup.rs -sSf | sh -s -- -q -y
+source "$HOME/.cargo/env"
+
 git clone https://github.com/ralscha/framework-comparison-2020.git
 cd framework-comparison-2020
 
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 apt-get install -y nodejs
 
-wget https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.2%2B9/OpenJDK18U-jdk_x64_linux_hotspot_18.0.2_9.tar.gz
-tar xzf OpenJDK18U-jdk_x64_linux_hotspot_18.0.2_9.tar.gz
-rm OpenJDK18U-jdk_x64_linux_hotspot_18.0.2_9.tar.gz
-mv jdk-18.0.2+9 openjdk
+wget https://github.com/adoptium/temurin19-binaries/releases/download/jdk-19%2B36/OpenJDK19U-jdk_x64_linux_hotspot_19_36.tar.gz
+tar xzf OpenJDK19U-jdk_x64_linux_hotspot_19_36.tar.gz
+rm OpenJDK19U-jdk_x64_linux_hotspot_19_36.tar.gz
+mv jdk-19+36 openjdk
 
 wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-22.2.0/graalvm-ce-java17-linux-amd64-22.2.0.tar.gz
 tar xzf graalvm-ce-java17-linux-amd64-22.2.0.tar.gz
@@ -28,16 +31,21 @@ export JAVA_HOME=`pwd`/graal
 PATH=$JAVA_HOME/bin:$PATH
 gu install native-image
 
-wget https://github.com/grafana/k6/releases/download/v0.39.0/k6-v0.39.0-linux-amd64.tar.gz
-tar xzf k6-v0.39.0-linux-amd64.tar.gz
-mv k6-v0.39.0-linux-amd64/k6 .
+wget https://github.com/grafana/k6/releases/download/v0.40.0/k6-v0.40.0-linux-amd64.tar.gz
+tar xzf k6-v0.40.0-linux-amd64.tar.gz
+mv k6-v0.40.0-linux-amd64/k6 .
 rm -fr k6-*
 
-wget https://go.dev/dl/go1.19.linux-amd64.tar.gz
-tar xzf go1.19.linux-amd64.tar.gz
-rm go1.19.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.19.2.linux-amd64.tar.gz
+tar xzf go1.19.2.linux-amd64.tar.gz
+rm go1.19.2.linux-amd64.tar.gz
 
 npm install
+
+cd rust
+cargo build -r
+cp release/salvodemo ../rustdemo
+cd ..
 
 cd springboot
 ./mvnw -Pnative -DskipTests clean package
