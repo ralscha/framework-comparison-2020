@@ -44,7 +44,7 @@ npm install
 
 cd rust
 cargo build -r
-cp release/salvodemo ../rustdemo
+cp target/release/salvodemo ../rustdemo
 cd ..
 
 cd springboot
