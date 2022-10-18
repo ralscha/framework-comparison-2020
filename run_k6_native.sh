@@ -28,6 +28,21 @@ sleep 10
 pkill -9 springboot
 sleep 5
 
+./springboot-runner3 &
+sleep 5
+./k6 run --summary-export=springboot3-native1.json k6.js
+./k6 run --summary-export=springboot3-native2.json k6.js
+./k6 run --summary-export=springboot3-native3.json k6.js
+ps x -o rss,vsz,command | grep springboot3-runner
+sleep 5
+ps x -o rss,vsz,command | grep springboot3-runner
+sleep 5
+ps x -o rss,vsz,command | grep springboot3-runner
+pkill springboot
+sleep 10
+pkill -9 springboot
+sleep 5
+
 ./micronaut-runner &
 sleep 5
 ./k6 run --summary-export=micronaut-native1.json k6.js

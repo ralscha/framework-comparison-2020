@@ -43,3 +43,18 @@ pkill java
 sleep 10
 pkill -9 java
 sleep 5
+
+java -jar springboot3.jar &
+sleep 10
+./k6 run --summary-export=springboot3_1-$JAVA_VM.json k6.js
+./k6 run --summary-export=springboot3_2-$JAVA_VM.json k6.js
+./k6 run --summary-export=springboot3_3-$JAVA_VM.json k6.js
+ps x -o rss,vsz,command | grep java
+sleep 5
+ps x -o rss,vsz,command | grep java
+sleep 5
+ps x -o rss,vsz,command | grep java
+pkill java
+sleep 10
+pkill -9 java
+sleep 5

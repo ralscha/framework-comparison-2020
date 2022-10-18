@@ -52,6 +52,11 @@ cd springboot
 cp target/springboot ../springboot-runner
 cd ..
 
+cd springboot3
+./mvnw -Pnative -DskipTests clean package
+cp target/springboot3 ../springboot3-runner
+cd ..
+
 cd micronaut
 ./mvnw clean package -Dpackaging=native-image
 cp target/micronaut ../micronaut-runner
@@ -68,6 +73,11 @@ PATH=$JAVA_HOME/bin:$PATH
 cd springboot
 ./mvnw clean package
 cp target/springboot.jar ../springboot.jar
+cd ..
+
+cd springboot3
+./mvnw clean package
+cp target/springboot3.jar ../springboot3.jar
 cd ..
 
 cd micronaut
