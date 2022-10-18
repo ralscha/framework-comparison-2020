@@ -90,15 +90,15 @@ cd quarkus
 cp target/quarkus-app .. -r
 cd ..
 
-./go/bin/go build -o goexample go/go-example.go
+./go/bin/go build -ldflags='-s' -o goexample go/go-example.go
 
 cd go-fibre
-../go/bin/go build -o gofibre go-example.go
+../go/bin/go build -ldflags='-s' -o gofibre go-example.go
 cp gofibre ..
 cd ..
 
 cd go-echo
-../go/bin/go build -o goecho go-example.go
+../go/bin/go build -ldflags='-s' -o goecho go-example.go
 cp goecho ..
 cd ..
 
