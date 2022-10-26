@@ -22,14 +22,7 @@ tar xzf OpenJDK19U-jdk_x64_linux_hotspot_19_36.tar.gz
 rm OpenJDK19U-jdk_x64_linux_hotspot_19_36.tar.gz
 mv jdk-19+36 openjdk
 
-wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-22.2.0/graalvm-ce-java17-linux-amd64-22.2.0.tar.gz
-tar xzf graalvm-ce-java17-linux-amd64-22.2.0.tar.gz
-rm graalvm-ce-java17-linux-amd64-22.2.0.tar.gz
-apt-get install build-essential libz-dev zlib1g-dev -y
-mv graalvm-ce-java17-22.2.0 graal
-export JAVA_HOME=`pwd`/graal
-PATH=$JAVA_HOME/bin:$PATH
-gu install native-image
+bash <(curl -sL https://get.graalvm.org/jdk)
 
 wget https://github.com/grafana/k6/releases/download/v0.40.0/k6-v0.40.0-linux-amd64.tar.gz
 tar xzf k6-v0.40.0-linux-amd64.tar.gz
