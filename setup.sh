@@ -34,10 +34,9 @@ cargo build -r
 cp target/release/salvodemo ../rustdemo
 cd ..
 
-
-export GRAALVM_HOME="/root/graalvm-ce-java19-22.3.0"
-export PATH="/root/graalvm-ce-java19-22.3.0/bin:$PATH"
-export JAVA_HOME="/root/graalvm-ce-java19-22.3.0"
+export GRAALVM_HOME="/root/framework-comparison-2020/graalvm-ce-java19-22.3.0"
+export PATH="/root/framework-comparison-2020/graalvm-ce-java19-22.3.0/bin:$PATH"
+export JAVA_HOME="/root/framework-comparison-2020/graalvm-ce-java19-22.3.0"
 
 cd springboot
 ./mvnw -Pnative -DskipTests clean package
