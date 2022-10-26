@@ -1,12 +1,6 @@
 apt update
 apt dist-upgrade -y
-apt-get remove docker docker-engine docker.io containerd runc -y
-apt install git screen apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
-
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-apt update
-apt install docker-ce -y
+apt install git screen ca-certificates curl build-essential libz-dev zlib1g-dev -y
 
 curl https://sh.rustup.rs -sSf | sh -s -- -q -y
 source "$HOME/.cargo/env"
@@ -22,7 +16,7 @@ tar xzf OpenJDK19U-jdk_x64_linux_hotspot_19_36.tar.gz
 rm OpenJDK19U-jdk_x64_linux_hotspot_19_36.tar.gz
 mv jdk-19+36 openjdk
 
-bash <(curl -sL https://get.graalvm.org/jdk)
+bash <(curl -sL https://get.graalvm.org/jdk) graalvm-ce-java19-22.3.0
 
 wget https://github.com/grafana/k6/releases/download/v0.40.0/k6-v0.40.0-linux-amd64.tar.gz
 tar xzf k6-v0.40.0-linux-amd64.tar.gz
@@ -39,6 +33,11 @@ cd rust
 cargo build -r
 cp target/release/salvodemo ../rustdemo
 cd ..
+
+
+export GRAALVM_HOME="/root/graalvm-ce-java19-22.3.0"
+export PATH="/root/graalvm-ce-java19-22.3.0/bin:$PATH"
+export JAVA_HOME="/root/graalvm-ce-java19-22.3.0"
 
 cd springboot
 ./mvnw -Pnative -DskipTests clean package
