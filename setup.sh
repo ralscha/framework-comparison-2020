@@ -45,7 +45,7 @@ cd ..
 
 cd springboot3
 ./mvnw -Pnative -DskipTests clean package
-cp target/springboot3 ../springboot3-runner
+cp target/demo ../springboot3-runner
 cd ..
 
 cd micronaut
