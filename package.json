@@ -7,7 +7,6 @@
 		"time_spring_boot3": "node time.js springboot3.jar",
 		"time_micronaut": "node time.js micronaut.jar",
 		"time_quarkus": "node time.js quarkus-app/quarkus-run.jar",
-		"time_springboot_native": "node time.js ./springboot-runner",
 		"time_springboot3_native": "node time.js ./springboot3-runner",
 		"time_micronaut_native": "node time.js ./micronaut-runner",
 		"time_quarkus_native": "node time.js ./quarkus-runner",

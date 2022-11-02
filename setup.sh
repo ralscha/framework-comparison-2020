@@ -11,10 +11,10 @@ cd framework-comparison-2020
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 apt-get install -y nodejs
 
-wget https://github.com/adoptium/temurin19-binaries/releases/download/jdk-19%2B36/OpenJDK19U-jdk_x64_linux_hotspot_19_36.tar.gz
-tar xzf OpenJDK19U-jdk_x64_linux_hotspot_19_36.tar.gz
-rm OpenJDK19U-jdk_x64_linux_hotspot_19_36.tar.gz
-mv jdk-19+36 openjdk
+wget https://github.com/adoptium/temurin19-binaries/releases/download/jdk-19.0.1%2B10/OpenJDK19U-jdk_x64_linux_hotspot_19.0.1_10.tar.gz
+tar xzf OpenJDK19U-jdk_x64_linux_hotspot_19.0.1_10.tar.gz
+rm OpenJDK19U-jdk_x64_linux_hotspot_19.0.1_10.tar.gz
+mv jdk-19.0.1+10 openjdk
 
 bash <(curl -sL https://get.graalvm.org/jdk) graalvm-ce-java19-22.3.0
 
@@ -23,9 +23,9 @@ tar xzf k6-v0.40.0-linux-amd64.tar.gz
 mv k6-v0.40.0-linux-amd64/k6 .
 rm -fr k6-*
 
-wget https://go.dev/dl/go1.19.2.linux-amd64.tar.gz
-tar xzf go1.19.2.linux-amd64.tar.gz
-rm go1.19.2.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.19.3.linux-amd64.tar.gz
+tar xzf go1.19.3.linux-amd64.tar.gz
+rm go1.19.3.linux-amd64.tar.gz
 
 npm install
 
@@ -37,11 +37,6 @@ cd ..
 export GRAALVM_HOME="/root/framework-comparison-2020/graalvm-ce-java19-22.3.0"
 export PATH="/root/framework-comparison-2020/graalvm-ce-java19-22.3.0/bin:$PATH"
 export JAVA_HOME="/root/framework-comparison-2020/graalvm-ce-java19-22.3.0"
-
-cd springboot
-./mvnw -Pnative -DskipTests clean package
-cp target/springboot ../springboot-runner
-cd ..
 
 cd springboot3
 ./mvnw -Pnative -DskipTests clean package
