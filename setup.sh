@@ -18,9 +18,9 @@ mv jdk-19.0.1+10 openjdk
 
 bash <(curl -sL https://get.graalvm.org/jdk) graalvm-ce-java19-22.3.0
 
-wget https://github.com/grafana/k6/releases/download/v0.40.0/k6-v0.40.0-linux-amd64.tar.gz
-tar xzf k6-v0.40.0-linux-amd64.tar.gz
-mv k6-v0.40.0-linux-amd64/k6 .
+wget https://github.com/grafana/k6/releases/download/v0.41.0/k6-v0.41.0-linux-amd64.tar.gz
+tar xzf k6-v0.41.0-linux-amd64.tar.gz
+mv k6-v0.41.0-linux-amd64/k6 .
 rm -fr k6-*
 
 wget https://go.dev/dl/go1.19.3.linux-amd64.tar.gz
