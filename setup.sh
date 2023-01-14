@@ -16,16 +16,16 @@ tar xzf OpenJDK19U-jdk_x64_linux_hotspot_19.0.1_10.tar.gz
 rm OpenJDK19U-jdk_x64_linux_hotspot_19.0.1_10.tar.gz
 mv jdk-19.0.1+10 openjdk
 
-bash <(curl -sL https://get.graalvm.org/jdk) graalvm-ce-java19-22.3.0
+bash <(curl -sL https://get.graalvm.org/jdk)
 
-wget https://github.com/grafana/k6/releases/download/v0.41.0/k6-v0.41.0-linux-amd64.tar.gz
-tar xzf k6-v0.41.0-linux-amd64.tar.gz
-mv k6-v0.41.0-linux-amd64/k6 .
+wget https://github.com/grafana/k6/releases/download/v0.42.0/k6-v0.42.0-linux-amd64.tar.gz
+tar xzf k6-v0.42.0-linux-amd64.tar.gz
+mv k6-v0.42.0-linux-amd64/k6 .
 rm -fr k6-*
 
-wget https://go.dev/dl/go1.19.4.linux-amd64.tar.gz
-tar xzf go1.19.4.linux-amd64.tar.gz
-rm go1.19.4.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.19.5.linux-amd64.tar.gz
+tar xzf go1.19.5.linux-amd64.tar.gz
+rm go1.19.5.linux-amd64.tar.gz
 
 npm install
 
