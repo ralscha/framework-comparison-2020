@@ -16,7 +16,7 @@ async fn hello_world(req: &mut Request, res: &mut Response) {
 }
 
 fn say_hello(name: &str) -> String {
-    format!("Hello {}!", name)
+    format!("Hello {}", name)
 }
 
 
