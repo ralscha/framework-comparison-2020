@@ -13,7 +13,7 @@ sleep 10
 pkill -9 quarkus
 sleep 5
 
-./springboot-runner3 &
+./springboot3-runner &
 sleep 5
 ./k6 run --summary-export=springboot3-native1.json k6.js
 ./k6 run --summary-export=springboot3-native2.json k6.js
