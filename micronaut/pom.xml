@@ -9,14 +9,14 @@
 	<parent>
 		<groupId>io.micronaut</groupId>
 		<artifactId>micronaut-parent</artifactId>
-		<version>3.8.1</version>
+		<version>3.8.3</version>
 	</parent>
 
 	<properties>
 		<packaging>jar</packaging>
 		<jdk.version>19</jdk.version>
 		<release.version>19</release.version>
-		<micronaut.version>3.8.1</micronaut.version>
+		<micronaut.version>3.8.3</micronaut.version>
 		<exec.mainClass>com.example.micronaut.Application</exec.mainClass>
 		<micronaut.runtime>netty</micronaut.runtime>
 	</properties>
