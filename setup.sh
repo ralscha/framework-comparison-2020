@@ -11,21 +11,21 @@ cd framework-comparison-2020
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 apt-get install -y nodejs
 
-wget https://github.com/adoptium/temurin19-binaries/releases/download/jdk-19.0.1%2B10/OpenJDK19U-jdk_x64_linux_hotspot_19.0.1_10.tar.gz
-tar xzf OpenJDK19U-jdk_x64_linux_hotspot_19.0.1_10.tar.gz
-rm OpenJDK19U-jdk_x64_linux_hotspot_19.0.1_10.tar.gz
-mv jdk-19.0.1+10 openjdk
+wget https://github.com/adoptium/temurin20-binaries/releases/download/jdk-20.0.1%2B9/OpenJDK20U-jdk_x64_linux_hotspot_20.0.1_9.tar.gz
+tar xzf OpenJDK20U-jdk_x64_linux_hotspot_20.0.1_9.tar.gz
+rm OpenJDK20U-jdk_x64_linux_hotspot_20.0.1_9.tar.gz
+mv jdk-20.0.1+9 openjdk
 
-bash <(curl -sL https://get.graalvm.org/jdk) graalvm-ce-java19-22.3.0
+bash <(curl -sL https://get.graalvm.org/jdk) graalvm-ce-java19-22.3.2
 
-wget https://github.com/grafana/k6/releases/download/v0.42.0/k6-v0.42.0-linux-amd64.tar.gz
-tar xzf k6-v0.42.0-linux-amd64.tar.gz
-mv k6-v0.42.0-linux-amd64/k6 .
+wget https://github.com/grafana/k6/releases/download/v0.43.1/k6-v0.43.1-linux-amd64.tar.gz
+tar xzf k6-v0.43.1-linux-amd64.tar.gz
+mv k6-v0.43.1-linux-amd64/k6 .
 rm -fr k6-*
 
-wget https://go.dev/dl/go1.19.5.linux-amd64.tar.gz
-tar xzf go1.19.5.linux-amd64.tar.gz
-rm go1.19.5.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.20.3.linux-amd64.tar.gz
+tar xzf go1.20.3.linux-amd64.tar.gz
+rm go1.20.3.linux-amd64.tar.gz
 
 npm install
 
@@ -34,9 +34,9 @@ cargo build -r
 cp target/release/salvodemo ../rustdemo
 cd ..
 
-export GRAALVM_HOME="/root/framework-comparison-2020/graalvm-ce-java19-22.3.0"
-export PATH="/root/framework-comparison-2020/graalvm-ce-java19-22.3.0/bin:$PATH"
-export JAVA_HOME="/root/framework-comparison-2020/graalvm-ce-java19-22.3.0"
+export GRAALVM_HOME="/root/framework-comparison-2020/graalvm-ce-java19-22.3.2"
+export PATH="/root/framework-comparison-2020/graalvm-ce-java19-22.3.2/bin:$PATH"
+export JAVA_HOME="/root/framework-comparison-2020/graalvm-ce-java19-22.3.2
 
 cd springboot3
 ./mvnw -Pnative -DskipTests clean package
@@ -52,6 +52,15 @@ cd quarkus
 ./mvnw clean package -Pnative
 cp target/quarkus-0.0.1-runner ../quarkus-runner
 cd ..
+
+cd helidon-mp
+./mvnw clean package -Pnative-image -Dnative.image.buildStatic
+cd ..
+
+cd helidon-se
+./mvnw clean package -Pnative-image -Dnative.image.buildStatic
+cd ..
+
 
 export JAVA_HOME=`pwd`/openjdk
 PATH=$JAVA_HOME/bin:$PATH

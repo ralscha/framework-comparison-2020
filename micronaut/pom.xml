@@ -9,14 +9,14 @@
 	<parent>
 		<groupId>io.micronaut</groupId>
 		<artifactId>micronaut-parent</artifactId>
-		<version>3.8.3</version>
+		<version>3.9.0</version>
 	</parent>
 
 	<properties>
 		<packaging>jar</packaging>
 		<jdk.version>19</jdk.version>
 		<release.version>19</release.version>
-		<micronaut.version>3.8.3</micronaut.version>
+		<micronaut.version>3.9.0</micronaut.version>
 		<exec.mainClass>com.example.micronaut.Application</exec.mainClass>
 		<micronaut.runtime>netty</micronaut.runtime>
 	</properties>
@@ -70,7 +70,6 @@
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
-			<version>5.3.0</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

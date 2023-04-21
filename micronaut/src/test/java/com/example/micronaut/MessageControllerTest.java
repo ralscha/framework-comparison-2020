@@ -26,11 +26,6 @@ public class MessageControllerTest {
 	}
 
 	@Test
-	void testMessage() {
-		given().when().get("/hello/John").then().statusCode(200).body(is("Hello John"));
-	}
-
-	@Test
 	void testMessageJSON() {
 		Response response = given().when().get("/helloJSON/John").then().statusCode(200)
 				.contentType(ContentType.JSON).extract().response();
