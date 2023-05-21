@@ -4,10 +4,10 @@ go 1.18
 
 require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
-	github.com/gofiber/fiber/v2 v2.44.0
+	github.com/gofiber/fiber/v2 v2.46.0
 	github.com/klauspost/compress v1.16.5 // indirect
-	github.com/valyala/fasthttp v1.46.0 // indirect
-	golang.org/x/sys v0.7.0 // indirect
+	github.com/valyala/fasthttp v1.47.0 // indirect
+	golang.org/x/sys v0.8.0 // indirect
 )
 
 require (

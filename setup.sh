@@ -38,9 +38,9 @@ export GRAALVM_HOME="/root/framework-comparison-2020/graalvm-ce-java19-22.3.2"
 export PATH="/root/framework-comparison-2020/graalvm-ce-java19-22.3.2/bin:$PATH"
 export JAVA_HOME="/root/framework-comparison-2020/graalvm-ce-java19-22.3.2
 
-cd springboot3
+cd springboot
 ./mvnw -Pnative -DskipTests clean package
-cp target/demo ../springboot3-runner
+cp target/demo ../springboot-runner
 cd ..
 
 cd micronaut
@@ -70,10 +70,6 @@ cd springboot
 cp target/springboot.jar ../springboot.jar
 cd ..
 
-cd springboot3
-./mvnw clean package
-cp target/springboot3.jar ../springboot3.jar
-cd ..
 
 cd micronaut
 ./mvnw clean package
