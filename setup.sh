@@ -16,7 +16,7 @@ tar xzf OpenJDK20U-jdk_x64_linux_hotspot_20.0.1_9.tar.gz
 rm OpenJDK20U-jdk_x64_linux_hotspot_20.0.1_9.tar.gz
 mv jdk-20.0.1+9 openjdk
 
-curl https://download.oracle.com/graalvm/20/latest/graalvm-jdk-20_linux-x64_bin.tar.gz
+wget https://download.oracle.com/graalvm/20/latest/graalvm-jdk-20_linux-x64_bin.tar.gz
 tar xzf graalvm-jdk-20_linux-x64_bin.tar.gz
 rm graalvm-jdk-20_linux-x64_bin.tar.gz
 mv graalvm-jdk-20.0.1+9.1 graalvm
@@ -40,7 +40,7 @@ cd ..
 
 export GRAALVM_HOME="/root/framework-comparison-2020/graalvm"
 export PATH="/root/framework-comparison-2020/graalvm/bin:$PATH"
-export JAVA_HOME="/root/framework-comparison-2020/graalvm
+export JAVA_HOME="/root/framework-comparison-2020/graalvm"
 
 cd springboot
 ./mvnw -Pnative -DskipTests clean package

@@ -22,7 +22,7 @@ fn say_hello(name: &str) -> String {
 
 #[tokio::main]
 async fn main() {
+    let acceptor = TcpListener::new("127.0.0.1:8080").bind().await;
     let router = Router::with_path("helloJSON/<name>").get(hello_world);
-    let listener = TcpListener::bind("127.0.0.1:8080");
-    Server::new(listener).serve(router).await;
+    Server::new(acceptor).serve(router).await;
 }
