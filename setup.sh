@@ -16,16 +16,20 @@ tar xzf OpenJDK20U-jdk_x64_linux_hotspot_20.0.1_9.tar.gz
 rm OpenJDK20U-jdk_x64_linux_hotspot_20.0.1_9.tar.gz
 mv jdk-20.0.1+9 openjdk
 
-bash <(curl -sL https://get.graalvm.org/jdk) graalvm-ce-java19-22.3.2
+curl https://download.oracle.com/graalvm/20/latest/graalvm-jdk-20_linux-x64_bin.tar.gz
+tar xzf graalvm-jdk-20_linux-x64_bin.tar.gz
+rm graalvm-jdk-20_linux-x64_bin.tar.gz
+mv graalvm-jdk-20.0.1+9.1 graalvm
 
-wget https://github.com/grafana/k6/releases/download/v0.43.1/k6-v0.43.1-linux-amd64.tar.gz
-tar xzf k6-v0.43.1-linux-amd64.tar.gz
-mv k6-v0.43.1-linux-amd64/k6 .
+
+wget https://github.com/grafana/k6/releases/download/v0.45.0/k6-v0.45.0-linux-amd64.tar.gz
+tar xzf k6-v0.45.0-linux-amd64.tar.gz
+mv k6-v0.45.0-linux-amd64/k6 .
 rm -fr k6-*
 
-wget https://go.dev/dl/go1.20.3.linux-amd64.tar.gz
-tar xzf go1.20.3.linux-amd64.tar.gz
-rm go1.20.3.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.20.6.linux-amd64.tar.gz
+tar xzf go1.20.6.linux-amd64.tar.gz
+rm go1.20.6.linux-amd64.tar.gz
 
 npm install
 
@@ -34,9 +38,9 @@ cargo build -r
 cp target/release/salvodemo ../rustdemo
 cd ..
 
-export GRAALVM_HOME="/root/framework-comparison-2020/graalvm-ce-java19-22.3.2"
-export PATH="/root/framework-comparison-2020/graalvm-ce-java19-22.3.2/bin:$PATH"
-export JAVA_HOME="/root/framework-comparison-2020/graalvm-ce-java19-22.3.2
+export GRAALVM_HOME="/root/framework-comparison-2020/graalvm"
+export PATH="/root/framework-comparison-2020/graalvm/bin:$PATH"
+export JAVA_HOME="/root/framework-comparison-2020/graalvm
 
 cd springboot
 ./mvnw -Pnative -DskipTests clean package
