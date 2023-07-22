@@ -3,7 +3,7 @@ module com.example/go-echo-example
 go 1.18
 
 require (
-	github.com/labstack/echo/v4 v4.11.0
+	github.com/labstack/echo/v4 v4.11.1
 	github.com/mattn/go-isatty v0.0.19 // indirect
 	golang.org/x/crypto v0.11.0 // indirect
 	golang.org/x/net v0.12.0 // indirect

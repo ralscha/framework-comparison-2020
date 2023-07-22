@@ -57,15 +57,6 @@ cd quarkus
 cp target/quarkus-0.0.1-runner ../quarkus-runner
 cd ..
 
-cd helidon-mp
-./mvnw clean package -Pnative-image -Dnative.image.buildStatic
-cd ..
-
-cd helidon-se
-./mvnw clean package -Pnative-image -Dnative.image.buildStatic
-cd ..
-
-
 export JAVA_HOME=`pwd`/openjdk
 PATH=$JAVA_HOME/bin:$PATH
 
