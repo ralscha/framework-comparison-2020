@@ -19,7 +19,7 @@ mv jdk-20.0.1+9 openjdk
 wget https://download.oracle.com/graalvm/20/latest/graalvm-jdk-20_linux-x64_bin.tar.gz
 tar xzf graalvm-jdk-20_linux-x64_bin.tar.gz
 rm graalvm-jdk-20_linux-x64_bin.tar.gz
-mv graalvm-jdk-20.0.1+9.1 graalvm
+mv graalvm-jdk-20.0.2+9.1 graalvm
 
 
 wget https://github.com/grafana/k6/releases/download/v0.45.0/k6-v0.45.0-linux-amd64.tar.gz
@@ -44,7 +44,7 @@ export JAVA_HOME="/root/framework-comparison-2020/graalvm"
 
 cd springboot
 ./mvnw -Pnative -DskipTests clean package
-cp target/demo ../springboot-runner
+cp target/springboot ../springboot-runner
 cd ..
 
 cd micronaut
