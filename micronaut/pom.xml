@@ -10,13 +10,13 @@
   <parent>
     <groupId>io.micronaut.platform</groupId>
     <artifactId>micronaut-parent</artifactId>
-    <version>4.0.1</version>
+    <version>4.0.2</version>
   </parent>
   <properties>
     <packaging>jar</packaging>
     <jdk.version>20</jdk.version>
     <release.version>20</release.version>
-    <micronaut.version>4.0.1</micronaut.version>
+    <micronaut.version>4.0.2</micronaut.version>
     <micronaut.aot.enabled>true</micronaut.aot.enabled>
     <micronaut.aot.packageName>com.example.micronaut.aot.generated</micronaut.aot.packageName>
     <micronaut.runtime>netty</micronaut.runtime>
