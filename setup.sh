@@ -1,6 +1,6 @@
 apt update
 apt dist-upgrade -y
-apt install git screen ca-certificates curl build-essential libz-dev zlib1g-dev -y
+apt install git screen ca-certificates curl gnupg build-essential libz-dev zlib1g-dev -y
 
 curl https://sh.rustup.rs -sSf | sh -s -- -q -y
 source "$HOME/.cargo/env"
@@ -8,8 +8,10 @@ source "$HOME/.cargo/env"
 git clone https://github.com/ralscha/framework-comparison-2020.git
 cd framework-comparison-2020
 
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-apt-get install -y nodejs
+mkdir -p /etc/apt/keyrings
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+NODE_MAJOR=20
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
 
 wget https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.1%2B12/OpenJDK21U-jdk_x64_linux_hotspot_21.0.1_12.tar.gz
 tar xzf OpenJDK21U-jdk_x64_linux_hotspot_21.0.1_12.tar.gz
