@@ -11,25 +11,24 @@ cd framework-comparison-2020
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 apt-get install -y nodejs
 
-wget https://github.com/adoptium/temurin20-binaries/releases/download/jdk-20.0.1%2B9/OpenJDK20U-jdk_x64_linux_hotspot_20.0.1_9.tar.gz
-tar xzf OpenJDK20U-jdk_x64_linux_hotspot_20.0.1_9.tar.gz
-rm OpenJDK20U-jdk_x64_linux_hotspot_20.0.1_9.tar.gz
-mv jdk-20.0.1+9 openjdk
+wget https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.1%2B12/OpenJDK21U-jdk_x64_linux_hotspot_21.0.1_12.tar.gz
+tar xzf OpenJDK21U-jdk_x64_linux_hotspot_21.0.1_12.tar.gz
+rm OpenJDK21U-jdk_x64_linux_hotspot_21.0.1_12.tar.gz
+mv jdk-21.0.1+12 openjdk
 
-wget https://download.oracle.com/graalvm/20/latest/graalvm-jdk-20_linux-x64_bin.tar.gz
-tar xzf graalvm-jdk-20_linux-x64_bin.tar.gz
-rm graalvm-jdk-20_linux-x64_bin.tar.gz
-mv graalvm-jdk-20.0.2+9.1 graalvm
+wget https://download.oracle.com/graalvm/21/latest/graalvm-jdk-21_linux-x64_bin.tar.gz
+tar xzf graalvm-jdk-21_linux-x64_bin.tar.gz
+rm graalvm-jdk-21_linux-x64_bin.tar.gz
+mv graalvm-jdk-21.0.1+12.1 graalvm
 
-
-wget https://github.com/grafana/k6/releases/download/v0.45.0/k6-v0.45.0-linux-amd64.tar.gz
-tar xzf k6-v0.45.0-linux-amd64.tar.gz
-mv k6-v0.45.0-linux-amd64/k6 .
+wget https://github.com/grafana/k6/releases/download/v0.47.0/k6-v0.47.0-linux-amd64.tar.gz
+tar xzf k6-v0.47.0-linux-amd64.tar.gz
+mv k6-v0.47.0-linux-amd64/k6 .
 rm -fr k6-*
 
-wget https://go.dev/dl/go1.20.6.linux-amd64.tar.gz
-tar xzf go1.20.6.linux-amd64.tar.gz
-rm go1.20.6.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.21.4.linux-amd64.tar.gz
+tar xzf go1.21.4.linux-amd64.tar.gz
+rm go1.21.4.linux-amd64.tar.gz
 
 npm install
 

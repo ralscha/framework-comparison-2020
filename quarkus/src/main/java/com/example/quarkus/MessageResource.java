@@ -1,5 +1,6 @@
 package com.example.quarkus;
 
+import io.smallrye.common.annotation.RunOnVirtualThread;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -13,6 +14,7 @@ public class MessageResource {
 	@GET
 	@Path("/helloJSON/{name}")
 	@Produces(MediaType.APPLICATION_JSON)
+	@RunOnVirtualThread
 	public HelloMessage helloJSON(@NotBlank @PathParam("name") String name) {
 		return new HelloMessage("Hello " + name, System.currentTimeMillis());
 	}
