@@ -5,9 +5,9 @@ go 1.18
 require (
 	github.com/labstack/echo/v4 v4.11.3
 	github.com/mattn/go-isatty v0.0.20 // indirect
-	golang.org/x/crypto v0.15.0 // indirect
-	golang.org/x/net v0.18.0 // indirect
-	golang.org/x/sys v0.14.0 // indirect
+	golang.org/x/crypto v0.16.0 // indirect
+	golang.org/x/net v0.19.0 // indirect
+	golang.org/x/sys v0.15.0 // indirect
 )
 
 require (
