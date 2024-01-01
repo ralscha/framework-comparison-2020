@@ -23,14 +23,14 @@ tar xzf graalvm-jdk-21_linux-x64_bin.tar.gz
 rm graalvm-jdk-21_linux-x64_bin.tar.gz
 mv graalvm-jdk-21.0.1+12.1 graalvm
 
-wget https://github.com/grafana/k6/releases/download/v0.47.0/k6-v0.47.0-linux-amd64.tar.gz
-tar xzf k6-v0.47.0-linux-amd64.tar.gz
-mv k6-v0.47.0-linux-amd64/k6 .
+wget https://github.com/grafana/k6/releases/download/v0.48.0/k6-v0.48.0-linux-amd64.tar.gz
+tar xzf k6-v0.48.0-linux-amd64.tar.gz
+mv k6-v0.48.0-linux-amd64/k6 .
 rm -fr k6-*
 
-wget https://go.dev/dl/go1.21.4.linux-amd64.tar.gz
-tar xzf go1.21.4.linux-amd64.tar.gz
-rm go1.21.4.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.21.5.linux-amd64.tar.gz
+tar xzf go1.21.5.linux-amd64.tar.gz
+rm go1.21.5.linux-amd64.tar.gz
 
 npm install
 
