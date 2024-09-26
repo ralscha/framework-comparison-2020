@@ -1,13 +1,13 @@
 module com.example/go-fibre-example
 
-go 1.23.0
+go 1.23.1
 
 require (
 	github.com/andybalholm/brotli v1.1.0 // indirect
 	github.com/gofiber/fiber/v2 v2.52.5
-	github.com/klauspost/compress v1.17.9 // indirect
-	github.com/valyala/fasthttp v1.55.0 // indirect
-	golang.org/x/sys v0.24.0 // indirect
+	github.com/klauspost/compress v1.17.10 // indirect
+	github.com/valyala/fasthttp v1.56.0 // indirect
+	golang.org/x/sys v0.25.0 // indirect
 )
 
 require (
