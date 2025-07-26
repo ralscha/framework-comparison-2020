@@ -4,9 +4,9 @@ go 1.24.5
 
 require (
 	github.com/andybalholm/brotli v1.2.0 // indirect
-	github.com/gofiber/fiber/v2 v2.52.8
+	github.com/gofiber/fiber/v2 v2.52.9
 	github.com/klauspost/compress v1.18.0 // indirect
-	github.com/valyala/fasthttp v1.63.0 // indirect
+	github.com/valyala/fasthttp v1.64.0 // indirect
 	golang.org/x/sys v0.34.0 // indirect
 )
 
