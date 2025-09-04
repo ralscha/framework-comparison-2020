@@ -23,7 +23,7 @@ mv jdk-24.0.2 openjdk
 wget https://download.oracle.com/graalvm/24/latest/graalvm-jdk-24_linux-x64_bin.tar.gz
 tar xzf graalvm-jdk-24_linux-x64_bin.tar.gz
 rm graalvm-jdk-24_linux-x64_bin.tar.gz
-mv graalvm-jdk-24 graalvm
+mv graalvm-jdk-24.0.2+11.1 graalvm
 
 wget https://github.com/grafana/k6/releases/download/v1.2.3/k6-v1.2.3-linux-amd64.tar.gz
 tar xzf k6-v1.2.3-linux-amd64.tar.gz
@@ -57,7 +57,7 @@ cd ..
 
 cd quarkus
 ./mvnw clean package -Pnative
-cp target/quarkus-0.0.1-runner ../quarkus-runner
+cp target/example-1.0.0-runner ../quarkus-runner
 cd ..
 
 export JAVA_HOME=`pwd`/openjdk
@@ -71,7 +71,7 @@ cd ..
 
 cd micronaut
 ./mvnw clean package
-cp target/example-0.1.jar ../micronaut.jar
+cp target/micronaut-0.1.jar ../micronaut.jar
 cd ..
 
 cd quarkus

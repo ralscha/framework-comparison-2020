@@ -5,7 +5,7 @@ This repo contains a http request performance comparison between Micronaut, Quar
 ### Setup
 
 ```
-wget https://raw.githubusercontent.com/ralscha/framework-comparison-2020/master/setup.sh
+wget https://raw.githubusercontent.com/ralscha/framework-comparison-2020/refs/heads/master/setup.sh
 source ./setup.sh
 ```
 
