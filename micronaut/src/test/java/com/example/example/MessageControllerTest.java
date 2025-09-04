@@ -1,4 +1,4 @@
-package com.example.micronaut;
+package com.example.example;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;

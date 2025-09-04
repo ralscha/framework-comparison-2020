@@ -10,29 +10,29 @@ cd framework-comparison-2020
 
 mkdir -p /etc/apt/keyrings
 curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
-NODE_MAJOR=20
+NODE_MAJOR=22
 echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
 apt-get update
 apt-get install nodejs -y
 
-wget https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.1%2B12/OpenJDK21U-jdk_x64_linux_hotspot_21.0.1_12.tar.gz
-tar xzf OpenJDK21U-jdk_x64_linux_hotspot_21.0.1_12.tar.gz
-rm OpenJDK21U-jdk_x64_linux_hotspot_21.0.1_12.tar.gz
-mv jdk-21.0.1+12 openjdk
+wget https://download.java.net/java/GA/jdk24.0.2/fdc5d0102fe0414db21410ad5834341f/12/GPL/openjdk-24.0.2_linux-x64_bin.tar.gz
+tar xzf openjdk-24.0.2_linux-x64_bin.tar.gz
+rm openjdk-24.0.2_linux-x64_bin.tar.gz
+mv jdk-24.0.2 openjdk
 
-wget https://download.oracle.com/graalvm/21/latest/graalvm-jdk-21_linux-x64_bin.tar.gz
-tar xzf graalvm-jdk-21_linux-x64_bin.tar.gz
-rm graalvm-jdk-21_linux-x64_bin.tar.gz
-mv graalvm-jdk-21.0.1+12.1 graalvm
+wget https://download.oracle.com/graalvm/24/latest/graalvm-jdk-24_linux-x64_bin.tar.gz
+tar xzf graalvm-jdk-24_linux-x64_bin.tar.gz
+rm graalvm-jdk-24_linux-x64_bin.tar.gz
+mv graalvm-jdk-24 graalvm
 
-wget https://github.com/grafana/k6/releases/download/v0.48.0/k6-v0.48.0-linux-amd64.tar.gz
-tar xzf k6-v0.48.0-linux-amd64.tar.gz
-mv k6-v0.48.0-linux-amd64/k6 .
+wget https://github.com/grafana/k6/releases/download/v1.2.3/k6-v1.2.3-linux-amd64.tar.gz
+tar xzf k6-v1.2.3-linux-amd64.tar.gz
+mv k6-v1.2.3-linux-amd64/k6 .
 rm -fr k6-*
 
-wget https://go.dev/dl/go1.21.5.linux-amd64.tar.gz
-tar xzf go1.21.5.linux-amd64.tar.gz
-rm go1.21.5.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.25.0.linux-amd64.tar.gz
+tar xzf go1.25.0.linux-amd64.tar.gz
+rm go1.25.0.linux-amd64.tar.gz
 
 npm install
 
@@ -71,7 +71,7 @@ cd ..
 
 cd micronaut
 ./mvnw clean package
-cp target/micronaut-0.1.jar ../micronaut.jar
+cp target/example-0.1.jar ../micronaut.jar
 cd ..
 
 cd quarkus
@@ -79,15 +79,15 @@ cd quarkus
 cp target/quarkus-app .. -r
 cd ..
 
-./go/bin/go build -ldflags='-s' -o goexample go/go-example.go
+./go/bin/go build -ldflags='-s -w' -o goexample go/go-example.go
 
 cd go-fibre
-../go/bin/go build -ldflags='-s' -o gofibre go-example.go
+../go/bin/go build -ldflags='-s -w' -o gofibre go-example.go
 cp gofibre ..
 cd ..
 
 cd go-echo
-../go/bin/go build -ldflags='-s' -o goecho go-example.go
+../go/bin/go build -ldflags='-s -w' -o goecho go-example.go
 cp goecho ..
 cd ..
 

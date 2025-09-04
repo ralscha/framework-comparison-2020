@@ -23,6 +23,11 @@ func sayHello(name string) string {
 
 func main() {
 	e := echo.New()
+	e.Debug = false
+	e.HideBanner = true
+	e.Server.ReadTimeout = 10 * time.Second
+	e.Server.WriteTimeout = 10 * time.Second
+	e.Server.IdleTimeout = 30 * time.Second
 
 	e.GET("/helloJSON/:name", jsonHandler)
 

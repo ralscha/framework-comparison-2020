@@ -3,7 +3,7 @@ package main
 import (
 	"time"
 
-	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v3"
 )
 
 type HelloMessage struct {
@@ -11,7 +11,7 @@ type HelloMessage struct {
 	Ts  int64  `json:"ts"`
 }
 
-func jsonHandler(c *fiber.Ctx) error {
+func jsonHandler(c fiber.Ctx) error {
 	helloMessage := HelloMessage{Msg: sayHello(c.Params("name")), Ts: time.Now().Unix()}
 	return c.JSON(helloMessage)
 }
@@ -21,7 +21,10 @@ func sayHello(name string) string {
 }
 
 func main() {
-	app := fiber.New()
+	app := fiber.New(fiber.Config{
+		Concurrency:  256 * 1024,
+		ServerHeader: "",
+	})
 
 	app.Get("/helloJSON/:name", jsonHandler)
 

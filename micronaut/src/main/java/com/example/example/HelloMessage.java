@@ -1,4 +1,4 @@
-package com.example.micronaut;
+package com.example.example;
 
 import io.micronaut.serde.annotation.Serdeable;
 

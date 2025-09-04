@@ -27,7 +27,7 @@ source ./setup.sh
 
 \* = requires JVM
 
-Tests ran on a [Hetzner](https://hetzner.cloud/?ref=n8nOAQHMszMa) (referral link) VPS CX41 (4 VCPU, 16 GB RAM)      
-OS: Ubuntu Server 22.04     
+Tests ran on a [Hetzner](https://hetzner.cloud/?ref=n8nOAQHMszMa) (referral link) VPS CPX41 AMD (8 VCPU, 16 GB RAM)      
+OS: Debian 13    
 1st January 2024
 

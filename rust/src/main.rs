@@ -4,17 +4,19 @@ use serde::{Serialize};
 #[derive(Serialize, Debug)]
 struct HelloMessage {
     msg: String,
-    ts: u128
+    ts: u64
 }
 
 #[handler]
+#[inline]
 async fn hello_world(req: &mut Request, res: &mut Response) {
     let name = req.param::<&str>("name").unwrap();
-    let ts = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_millis();
+    let ts = std::time::UNIX_EPOCH.elapsed().unwrap().as_millis() as u64;
     let msg = HelloMessage{msg: say_hello(name), ts };
     res.render(Json(msg));
 }
 
+#[inline]
 fn say_hello(name: &str) -> String {
     format!("Hello {}", name)
 }
