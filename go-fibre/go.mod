@@ -1,6 +1,6 @@
 module com.example/go-fibre-example
 
-go 1.25.0
+go 1.25.1
 
 require (
 	github.com/andybalholm/brotli v1.2.0 // indirect
