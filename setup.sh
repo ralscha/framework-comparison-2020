@@ -30,9 +30,9 @@ tar xzf k6-v1.2.3-linux-amd64.tar.gz
 mv k6-v1.2.3-linux-amd64/k6 .
 rm -fr k6-*
 
-wget https://go.dev/dl/go1.25.0.linux-amd64.tar.gz
-tar xzf go1.25.0.linux-amd64.tar.gz
-rm go1.25.0.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.25.1.linux-amd64.tar.gz
+tar xzf go1.25.1.linux-amd64.tar.gz
+rm go1.25.1.linux-amd64.tar.gz
 
 npm install
 
